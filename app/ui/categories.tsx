@@ -4,7 +4,7 @@ const Categories = () => {
   return (
     <div className="px-[10%] py-[50px]">
       <h2 className="font-semibold text-[24px] font-serif">Categories</h2>
-      <div className="flex justify-evenly gap-4 mt-8">
+      <div className="flex flex-wrap justify-evenly gap-4 mt-8">
         <div className="bg-white border border-gray-200 rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
           <div className="text-orange bg-white p-2 rounded-full">
             <Image

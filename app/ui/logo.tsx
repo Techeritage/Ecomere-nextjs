@@ -6,7 +6,7 @@ import {
 
 const Logo = () => {
   return (
-    <div className="flex px-[10%] justify-between mb-10">
+    <div className="flex flex-wrap px-[10%] justify-between mb-10">
       <div className="flex items-center gap-2">
         <WalletIcon className="text-gray-800 stroke-1" width={50} />
         <div>
