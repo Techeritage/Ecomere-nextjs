@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Deals = () => {
   return (
-    <div className="relative mx-[10%] flex gap-5">
+    <div className="relative mx-[5%] md:mx-[10%] flex flex-col md:flex-row gap-5">
       <div className="w-full bg-[#F2F6FC] h-[260px] rounded-md">
         <Image className="w-full h-full object-contain" src="/drone.png" width={500} height={500} alt="drone image" />
       </div>
@@ -17,12 +17,12 @@ const Deals = () => {
           </button>
         </div>
         <div className="relative basis-1/2">
-          <div className="rounded-br-md absolute w-full right-[-30px] bottom-[-35px] bg-[#181A37] h-[250px] rounded-full"></div>
+          <div className="rounded-br-md absolute w-[250px] h-[250px] right-[-70px] md:right-[-40px] md:w-full bottom-[-20px] bg-[#181A37] rounded-full"></div>
         </div>
         <Image
-          className="h-full w-full object-cover absolute right-0 bottom-0"
+          className="h-[200px] w-[500px] md:w-full md:h-full object-cover absolute right-0 bottom-0"
           src="/wrist_watch.png"
-          width={500}
+          width={700}
           height={500}
           alt="drone image"
         />
