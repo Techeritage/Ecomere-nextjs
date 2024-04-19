@@ -1,12 +1,13 @@
 import Image from "next/image";
+import { ptSans } from "./fonts";
 
 const Categories = () => {
   return (
     <div className="px-[5%] py-[40px] md:px-[10%] md:py-[50px]">
-      <h2 className="font-semibold text-lg md:text-[24px] font-serif">Categories</h2>
-      <div className="grid grid-cols-3 gap-4 mt-2 md:mt-8 md:flex">
-        <div className="bg-white border border-gray-200 rounded-md  py-2 px-2 flex flex-col gap-1 items-center justify-center">
-          <div className="bg-white w-full">
+      <h2 className={`${ptSans.className} font-bold text-lg md:text-3xl font-serif`}>Categories</h2>
+      <div className="grid grid-cols-3 gap-2 mt-2 md:mt-8 md:flex">
+        <div className="bg-[#B0C4DE] rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
+          <div className="p-2">
             <Image
               src="/laptop.png"
               width={150}
@@ -14,12 +15,12 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center font-semibold text-sm w-[80px]">
+          <p className="text-center text-sm">
             Computers & Tablets
           </p>
         </div>
-        <div className="bg-white border border-gray-200 rounded-md py-2 px-2 flex gap-1 flex-col items-center justify-center">
-          <div className="text-orange bg-white p-2 rounded-full">
+        <div className="bg-[#F5DEB3] rounded-md py-2 px-2 flex gap-1 flex-col items-center justify-center">
+          <div className="p-2">
             <Image
               src="/mobile.png"
               width={150}
@@ -27,12 +28,12 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center font-semibold text-sm w-[80px]">
+          <p className="text-center text-sm">
             Mobile & Accessories
           </p>
         </div>
-        <div className="bg-white border border-gray-200 rounded-md py-2 px-2 flex gap-1 flex-col items-center justify-center">
-          <div className="text-orange bg-white p-2 rounded-full">
+        <div className="bg-[#C8E6C9] rounded-md py-2 px-2 flex gap-1 flex-col items-center justify-center">
+          <div className="p-2">
             <Image
               src="/theter.png"
               width={150}
@@ -40,12 +41,12 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center font-semibold text-sm w-[80px]">
+          <p className="text-center text-sm">
             TV & Home Theater
           </p>
         </div>
-        <div className="bg-white border border-gray-200 rounded-md py-2 px-2 flex gap-1 flex-col items-center justify-center">
-          <div className="text-orange bg-white p-2 rounded-full">
+        <div className="bg-[#E1BEE7] rounded-md py-2 px-2 flex gap-1 flex-col items-center justify-center">
+          <div className="p-2" >
             <Image
               src="/headphone.png"
               width={150}
@@ -53,12 +54,12 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center font-semibold text-sm w-[80px]">
+          <p className="text-center text-sm">
             Audio & Headphones
           </p>
         </div>
-        <div className="bg-white border border-gray-200 rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
-          <div className="text-orange bg-white p-2 rounded-full">
+        <div className="bg-[#FFF9C4] rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
+          <div className="p-2">
             <Image
               src="/camera.png"
               width={150}
@@ -66,12 +67,12 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center font-semibold text-sm w-[80px]">
+          <p className="text-center text-sm">
             Camera and comcordors
           </p>
         </div>
-        <div className="bg-white border border-gray-200 rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
-          <div className="text-orange bg-white p-2 rounded-full">
+        <div className="bg-[#FFCCBC] rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
+          <div className="p-2">
             <Image
               src="/gaming.png"
               width={150}
@@ -79,12 +80,12 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center font-semibold text-sm w-[80px]">
+          <p className="text-center text-sm">
             Gaming Equipment
           </p>
         </div>
-        <div className="bg-white border border-gray-200 rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
-          <div className="text-orange bg-white p-2 rounded-full">
+        <div className="bg-[#C8E6C9] rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
+          <div className="p-2">
             <Image
               src="/appliance.png"
               width={150}
@@ -92,7 +93,7 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center font-semibold text-sm w-[80px]">
+          <p className="text-center text-sm">
             Home Appliances
           </p>
         </div>
