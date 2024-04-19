@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Hero from "./ui/hero";
 import Logo from "./ui/logo";
 import Categories from "./ui/categories";
@@ -23,7 +22,6 @@ export default function Home() {
       <section>
         <Deals />
       </section>
-      <section>why choose us?</section>
       <section>faqs</section>
     </>
   );
