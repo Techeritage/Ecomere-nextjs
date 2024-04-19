@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const ProductCard = () => {
   return (
-    <div className="relative p-4 w-fit flex flex-col justify-center items-center">
-      <div className="w-full rounded-lg py-5 mb-1 bg-[#f4f4f4] flex items-center justify-center">
+    <div className="relative p-4 rounded-md shadow-sm w-fit bg-white flex flex-col justify-center items-center">
+      <div className="w-full py-5 mb-1 flex items-center justify-center">
         <Image
           src="/ts2.jpeg"
           width={100}

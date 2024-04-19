@@ -3,7 +3,7 @@ import ProductCard from "./productCard";
 
 const Homeproduct = () => {
   return (
-    <div className="px-[5%] md:px-[10%] py-[50px]">
+    <div className="px-[5%] md:px-[10%] py-[50px] bg-[#f4f4f4]">
       <h2 className={`${ptSans.className} font-bold text-2xl md:text-3xl text-center mb-3`}>
         Our Products
       </h2>
