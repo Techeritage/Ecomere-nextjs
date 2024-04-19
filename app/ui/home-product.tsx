@@ -2,7 +2,7 @@ import ProductCard from "./productCard";
 
 const Homeproduct = () => {
   return (
-    <div className="px-[10%] py-[50px] my-10 bg-gray-50">
+    <div className="px-[10%] py-[50px] my-10 bg-gray-100">
       <h2 className="font-semibold text-[24px] font-serif text-center mb-3">
         Our Produts
       </h2>
