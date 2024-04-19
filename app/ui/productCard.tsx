@@ -2,14 +2,16 @@ import Image from "next/image";
 
 const ProductCard = () => {
   return (
-    <div className="relative bg-white shadow-md rounded-lg p-4 w-fit flex flex-col justify-center items-center">
-      <Image
-        src="/ts2.jpeg"
-        width={100}
-        height={100}
-        alt="product card image"
-        className="mb-1"
-      />
+    <div className="relative p-4 w-fit flex flex-col justify-center items-center">
+      <div className="w-full rounded-lg py-5 mb-1 bg-[#f4f4f4] flex items-center justify-center">
+        <Image
+          src="/ts2.jpeg"
+          width={100}
+          height={70}
+          alt="product card image"
+          className="w-[70px] object-contain"
+        />
+      </div>
       <div>
         <p className="font-semibold">Tecno Camon 20+</p>
         <p className="text-sm text-gray-600">sharp camera, fast, 5G network</p>

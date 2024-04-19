@@ -1,13 +1,14 @@
+import { ptSans } from "./fonts";
 import ProductCard from "./productCard";
 
 const Homeproduct = () => {
   return (
-    <div className="px-[10%] py-[50px] my-10 bg-gray-100">
-      <h2 className="font-semibold text-[24px] font-serif text-center mb-3">
-        Our Produts
+    <div className="px-[5%] md:px-[10%] py-[50px]">
+      <h2 className={`${ptSans.className} font-bold text-2xl md:text-3xl text-center mb-3`}>
+        Our Products
       </h2>
       <div className="flex gap-6 justify-center mb-8">
-        <div className="text-lg text-white bg-orange py-1 rounded-full px-4">
+        <div className="text-lg text-gray-800 px-4">
           Featured
         </div>
         <div className="text-lg text-gray-800">
@@ -16,7 +17,7 @@ const Homeproduct = () => {
         <div className="text-lg text-gray-800">Popular</div>
       </div>
       <div className="flex justify-center">
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-5">
           <ProductCard />
           <ProductCard />
           <ProductCard />

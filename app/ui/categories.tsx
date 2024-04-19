@@ -3,8 +3,8 @@ import { ptSans } from "./fonts";
 
 const Categories = () => {
   return (
-    <div className="px-[5%] py-[40px] md:px-[10%] md:py-[50px]">
-      <h2 className={`${ptSans.className} font-bold text-2xl md:text-3xl font-serif`}>Categories</h2>
+    <div className="px-[5%] py-[40px] md:px-[10%] md:py-[50px] border-b">
+      <h2 className={`${ptSans.className} font-bold text-2xl md:text-3xl`}>Categories</h2>
       <div className="grid grid-cols-3 gap-2 mt-3 md:mt-8 md:flex">
         <div className="bg-[#B0C4DE] rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
           <div className="p-2">

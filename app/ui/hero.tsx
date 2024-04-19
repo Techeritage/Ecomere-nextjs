@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className="bg-[#008080] h-[75vh] md:h-[450px] flex flex-col md:flex-row px-[5%] md:px-[10%]">
       <div className="basis-1/2 flex flex-col justify-center">
-        <h1 className={`${ptSans.className} text-4xl text-white md:text-5xl font-semibold w-[80%] mb-2 font-serif`}>
+        <h1 className={`${ptSans.className} text-4xl text-white md:text-5xl font-semibold w-[80%] mb-2`}>
           Samsung Galaxy s23
         </h1>
         <p className="w-[60%] text-slate-100 text-lg md:text-lg mb-10 font-normal">
