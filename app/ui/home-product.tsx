@@ -17,7 +17,7 @@ const Homeproduct = () => {
         <div className="text-lg text-gray-800">Popular</div>
       </div>
       <div className="flex justify-center">
-        <div className="grid grid-cols-2 gap-5 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-5">
           <ProductCard />
           <ProductCard />
           <ProductCard />
