@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && purgecss --config purgecss.config.ts --css bootstrap/dist/css/bootstrap.min.css --output bootstrap/dist/css/bootstrap.min.css",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },

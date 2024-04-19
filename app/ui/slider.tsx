@@ -23,8 +23,8 @@ const Slider = () => {
           Shop now <span><ChevronRightIcon width={17} /></span>
         </button>
       </div>
-      <div className="relative basis-1/2 w-full h-full ">
-        <Image src="/iphone151.png" alt="hero image" width={450} height={500} className="absolute bottom-0" />
+      <div className="relative basis-1/2 w-full">
+        <Image src="/iphone151.png" alt="hero image" width={450} height={500} priority={true} className="absolute bottom-0" />
       </div>
     </div>
       </Carousel.Item>
@@ -42,7 +42,7 @@ const Slider = () => {
         </button>
       </div>
       <div className="relative basis-1/2 w-full h-full ">
-        <Image src="/iphone151.png" alt="hero image" width={450} height={500} className="absolute bottom-0" />
+        <Image src="/iphone151.png" alt="hero image" width={450} height={500} priority={true} className="absolute bottom-0" />
       </div>
     </div>
       </Carousel.Item>
