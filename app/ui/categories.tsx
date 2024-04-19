@@ -3,9 +3,9 @@ import Image from "next/image";
 const Categories = () => {
   return (
     <div className="px-[5%] py-[40px] md:px-[10%] md:py-[50px]">
-      <h2 className="font-semibold text-[24px] font-serif">Categories</h2>
-      <div className="flex justify-evenly gap-4 mt-2 md:mt-8 overflow-scroll md:flex-wrap md:overflow-hidden">
-        <div className="w-[200px] bg-white border border-gray-200 rounded-md  py-2 px-2 flex flex-col gap-1 items-center justify-center">
+      <h2 className="font-semibold text-lg md:text-[24px] font-serif">Categories</h2>
+      <div className="grid grid-cols-3 gap-4 mt-2 md:mt-8 md:flex">
+        <div className="bg-white border border-gray-200 rounded-md  py-2 px-2 flex flex-col gap-1 items-center justify-center">
           <div className="bg-white w-full">
             <Image
               src="/laptop.png"
