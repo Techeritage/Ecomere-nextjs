@@ -11,7 +11,7 @@ const Slider = () => {
   return (
     <Carousel controls={false}>
       <Carousel.Item>
-      <div className="bg-[#008080] h-[75vh] md:h-[450px] flex flex-col md:flex-row px-[5%] md:px-[10%]">
+      <div className="bg-[#008080] h-[75vh] md:h-[500px] flex flex-col md:flex-row px-[5%] md:px-[10%]">
       <div className="basis-1/2 flex flex-col justify-center">
         <h1 className={`${ptSans.className} text-4xl text-white md:text-5xl font-semibold w-[80%] mb-2`}>
           Samsung Galaxy s23
@@ -29,7 +29,7 @@ const Slider = () => {
     </div>
       </Carousel.Item>
       <Carousel.Item>
-      <div className="bg-[#008080] h-[75vh] md:h-[450px] flex flex-col md:flex-row px-[5%] md:px-[10%]">
+      <div className="bg-[#008080] h-[75vh] md:h-[500px] flex flex-col md:flex-row px-[5%] md:px-[10%]">
       <div className="basis-1/2 flex flex-col justify-center">
         <h1 className={`${ptSans.className} text-4xl text-white md:text-5xl font-semibold w-[80%] mb-2`}>
           Samsung Galaxy s23
@@ -42,7 +42,7 @@ const Slider = () => {
         </button>
       </div>
       <div className="relative basis-1/2 w-full h-full ">
-        <Image src="/iphone151.png" alt="hero image" width={450} height={500} priority={true} className="absolute bottom-0" />
+        <Image src="/iphone151.png" alt="hero image" width={450} height={375} priority={true} className="absolute bottom-0" />
       </div>
     </div>
       </Carousel.Item>

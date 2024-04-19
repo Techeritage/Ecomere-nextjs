@@ -7,3 +7,8 @@
   margin: 0;
   padding: 0;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0px; /* Hide horizontal scrollbar */
+  height: 0px; /* Hide vertical scrollbar */
+}
