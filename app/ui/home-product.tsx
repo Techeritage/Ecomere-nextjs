@@ -7,14 +7,14 @@ const Homeproduct = () => {
       <h2 className={`${ptSans.className} font-bold text-2xl md:text-3xl text-center mb-3`}>
         Our Products
       </h2>
-      <div className="flex gap-6 justify-center mb-8">
-        <div className="text-lg text-gray-800 px-4">
+      <div className="flex gap-3 justify-center mb-8">
+        <div className="text-sm md:text-lg text-gray-800">
          New Arrival
         </div>
-        <div className="text-lg text-gray-800">
+        <div className="text-sm md:text-lg text-gray-800">
         Featured Products
         </div>
-        <div className="text-lg text-gray-800">Best Seller</div>
+        <div className="text-sm md:text-lg text-gray-800">Best Seller</div>
       </div>
       <div className="flex justify-center">
         <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-5">
