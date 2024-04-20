@@ -17,7 +17,7 @@ const ProductCard = () => {
       <div>
         <RatingStar count={5} />
         <p className="font-semibold mb-1">Tecno Camon 20+</p>
-        <p className="text-sm mb-1 text-gray-600">sharp camera, fast, 5G network</p>
+        <p className="text-[12px] mb-1 text-gray-600 md:text-sm">sharp camera, fast, 5G network</p>
         <p className={`${ptSans.className} font-bold text-lg mb-2`}>$200</p>
       </div>
       <button className="bg-[#f4f4f4] rounded-full w-full p-2 text-sm font-semibold">
