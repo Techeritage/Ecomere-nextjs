@@ -15,7 +15,7 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center text-sm">
+          <p className="text-center font-bold text-[12px] text-slate-600">
             Computers & Tablets
           </p>
         </div>
@@ -28,7 +28,7 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center text-sm">
+          <p className="text-center font-bold text-[12px] text-slate-600">
             Mobile & Accessories
           </p>
         </div>
@@ -41,7 +41,7 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center text-sm">
+          <p className="text-center font-bold text-[12px] text-slate-600">
             TV & Home Theater
           </p>
         </div>
@@ -54,7 +54,7 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center text-sm">
+          <p className="text-center font-bold text-[12px] text-slate-600">
             Audio & Headphones
           </p>
         </div>
@@ -67,7 +67,7 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center text-sm">
+          <p className="text-center font-bold text-[12px] text-slate-600">
             Camera and comcordors
           </p>
         </div>
@@ -80,7 +80,7 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center text-sm">
+          <p className="text-center font-bold text-[12px] text-slate-600">
             Gaming Equipment
           </p>
         </div>
@@ -93,7 +93,7 @@ const Categories = () => {
               alt="laptop image"
             />
           </div>
-          <p className="text-center text-sm">
+          <p className="text-center font-bold text-[12px] text-slate-600">
             Home Appliances
           </p>
         </div>
