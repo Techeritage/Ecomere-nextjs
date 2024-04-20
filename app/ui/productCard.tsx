@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ptSans } from "./fonts";
 
 const ProductCard = () => {
   return (
@@ -15,7 +16,7 @@ const ProductCard = () => {
       <div>
         <p className="font-semibold mb-2">Tecno Camon 20+</p>
         <p className="text-sm text-gray-600">sharp camera, fast, 5G network</p>
-        <p className="font-semibold text-lg mb-2">$200</p>
+        <p className={`${ptSans.className} font-bold text-orange text-lg mb-2`}>$200</p>
       </div>
       <button className="bg-[#f4f4f4] rounded-full w-full p-2 text-sm font-semibold">
         Add To Cart
