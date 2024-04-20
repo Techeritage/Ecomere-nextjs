@@ -9,12 +9,12 @@ const Homeproduct = () => {
       </h2>
       <div className="flex gap-6 justify-center mb-8">
         <div className="text-lg text-gray-800 px-4">
-          Featured
+         New Arrival
         </div>
         <div className="text-lg text-gray-800">
-          New Arrival
+        Featured Products
         </div>
-        <div className="text-lg text-gray-800">Popular</div>
+        <div className="text-lg text-gray-800">Best Seller</div>
       </div>
       <div className="flex justify-center">
         <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-5">
