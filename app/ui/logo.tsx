@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Logo = () => {
   return (
-    <div className="grid grid-cols-2 gap-x-2 gap-y-4 py-4 px-[5%] md:px-[10%] justify-between mb-10">
+    <div className="grid grid-cols-2 md:flex gap-x-2 gap-y-4 py-4 px-[5%] md:px-[10%] justify-between mb-10">
       <div className="flex items-center gap-2">
         <WalletIcon className="text-gray-800 stroke-1" width={30} />
         <div>

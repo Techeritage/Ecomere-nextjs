@@ -4,8 +4,8 @@ import { ptSans } from "./fonts";
 const Categories = () => {
   return (
     <div className="px-[5%] py-[40px] md:px-[10%] md:py-[50px] border-b">
-      <h2 className={`${ptSans.className} font-bold text-2xl md:text-3xl`}>Shop by Categories</h2>
-      <div className="gap-3 md:gap-4 hide-scrollbar mt-3 md:mt-8 flex flex-nowrap overflow-x-scroll">
+      <h2 className={`${ptSans.className} font-bold text-center text-2xl md:text-3xl`}>Shop by Categories</h2>
+      <div className="gap-3 md:gap-4 hide-scrollbar mt-4 md:mt-8 flex flex-nowrap overflow-x-scroll">
         <div className="bg-[#B0C4DE] px-2 h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md flex flex-col gap-1 items-center justify-center">
           <div className="p-2">
             <Image
