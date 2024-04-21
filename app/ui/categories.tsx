@@ -34,23 +34,24 @@ const Categories = () => {
         Shop by Categories
       </h2>
       {categories.length > 0 && (
-        <div className="gap-3 md:gap-4 hide-scrollbar mt-4 md:mt-8 flex flex-nowrap overflow-x-scroll">
+        <div className="gap-2 md:gap-4 hide-scrollbar mt-4 md:mt-8 flex lg:justify-center flex-nowrap overflow-x-scroll">
           {categories &&
             categories.map((cat) => (
               <div
                 key={cat._id}
-                style={{ backgroundColor: `${cat.bgColor}` }}
-                className=" relative px-2 h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md flex flex-col gap-1 items-center justify-center"
+                
+                className="h-[150px] min-w-[120px] md:h-[150px] md:w-[130px] rounded-md flex flex-col gap-1 items-center justify-between"
               >
-                <div className="p-2">
+                <div className="p-2 rounded-md flex items-center justify-center w-full h-[100px]" style={{ backgroundColor: `${cat.bgColor}` }}>
                   <Image
                     src={cat.image}
-                    width={150}
-                    height={100}
+                    width={100}
+                    height={80}
                     alt="laptop image"
+                    className="object-contain w-[100px] h-[80px]"
                   />
                 </div>
-                <p className="absolute bottom-2 text-center font-bold text-[12px] text-gray-800">
+                <p className="text-center text-[12px] md:text-[13px]">
                   {cat.name}
                 </p>
               </div>
