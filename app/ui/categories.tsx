@@ -1,103 +1,62 @@
+"use client";
 import Image from "next/image";
 import { ptSans } from "./fonts";
 
+import { getAllParentCategory } from "../lib/handleForm";
+import { useEffect, useState } from "react";
+
+interface catData {
+  name: string;
+  image: string;
+  bgColor: string;
+  _id: string;
+}
+
 const Categories = () => {
+  const [categories, setCategories] = useState<catData[]>([]);
+
+  async function cate() {
+    const res = await getAllParentCategory();
+    if (res.status === 200) {
+      setCategories(res?.data);
+    }
+  }
+
+  useEffect(() => {
+    cate();
+  }, []);
+
   return (
     <div className="px-[5%] py-[40px] md:px-[10%] md:py-[50px] border-b">
-      <h2 className={`${ptSans.className} font-bold text-center text-2xl md:text-3xl`}>Shop by Categories</h2>
-      <div className="gap-3 md:gap-4 hide-scrollbar mt-4 md:mt-8 flex flex-nowrap overflow-x-scroll">
-        <div className="bg-[#B0C4DE] relative px-2 h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md flex flex-col gap-1 items-center justify-center">
-          <div className="p-2">
-            <Image
-              src="/laptop.png"
-              width={150}
-              height={100}
-              alt="laptop image"
-            />
-          </div>
-          <p className="absolute bottom-2 text-center font-bold text-[12px] text-gray-800">
-            Computers & Tablets
-          </p>
+      <h2
+        className={`${ptSans.className} font-bold text-center text-2xl md:text-3xl`}
+      >
+        Shop by Categories
+      </h2>
+      {categories.length > 0 && (
+        <div className="gap-3 md:gap-4 hide-scrollbar mt-4 md:mt-8 flex flex-nowrap overflow-x-scroll">
+          {categories &&
+            categories.map((cat) => (
+              <div
+                key={cat._id}
+                style={{ backgroundColor: `${cat.bgColor}` }}
+                className=" relative px-2 h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md flex flex-col gap-1 items-center justify-center"
+              >
+                <div className="p-2">
+                  <Image
+                    src={cat.image}
+                    width={150}
+                    height={100}
+                    alt="laptop image"
+                  />
+                </div>
+                <p className="absolute bottom-2 text-center font-bold text-[12px] text-gray-800">
+                  {cat.name}
+                </p>
+              </div>
+            ))}
         </div>
-        <div className="bg-[#F5DEB3] relative h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md py-2 px-2 flex gap-1 flex-col items-center justify-center">
-          <div className="p-2">
-            <Image
-              src="/mobile.png"
-              width={150}
-              height={100}
-              alt="laptop image"
-            />
-          </div>
-          <p className="absolute bottom-2 text-center font-bold text-[12px] text-gray-800">
-            Mobile & Accessories
-          </p>
-        </div>
-        <div className="bg-[#C8E6C9] relative h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md py-2 px-2 flex gap-1 flex-col items-center justify-center">
-          <div className="p-2">
-            <Image
-              src="/theter.png"
-              width={150}
-              height={100}
-              alt="laptop image"
-            />
-          </div>
-          <p className="absolute bottom-2 text-center font-bold text-[12px] text-gray-800">
-            TV & Home Theater
-          </p>
-        </div>
-        <div className="bg-[#E1BEE7] relative h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md py-2 px-2 flex gap-1 flex-col items-center justify-center">
-          <div className="p-2" >
-            <Image
-              src="/headphone.png"
-              width={150}
-              height={100}
-              alt="laptop image"
-            />
-          </div>
-          <p className="absolute bottom-2 text-center font-bold text-[12px] text-gray-800">
-            Audio & Headphones
-          </p>
-        </div>
-        <div className="bg-[#FFF9C4] relative h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
-          <div className="p-2">
-            <Image
-              src="/camera.png"
-              width={150}
-              height={100}
-              alt="laptop image"
-            />
-          </div>
-          <p className="absolute bottom-2 text-center font-bold text-[12px] text-gray-800">
-            Camera and comcordors
-          </p>
-        </div>
-        <div className="bg-[#FFCCBC] relative h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
-          <div className="p-2">
-            <Image
-              src="/gaming.png"
-              width={150}
-              height={100}
-              alt="laptop image"
-            />
-          </div>
-          <p className="absolute bottom-2 text-center font-bold text-[12px] text-gray-800">
-            Gaming Equipment
-          </p>
-        </div>
-        <div className="bg-[#C8E6C9] relative h-[180px] min-w-[150px] md:h-[214px] md:min-w-[180px] rounded-md py-2 px-2 flex flex-col gap-1 items-center justify-center">
-          <div className="p-2">
-            <Image
-              src="/appliance.png"
-              width={150}
-              height={100}
-              alt="laptop image"
-            />
-          </div>
-          <p className="absolute bottom-2 text-center font-bold text-[12px] text-gray-800">
-            Home Appliances
-          </p>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

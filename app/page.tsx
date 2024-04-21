@@ -5,6 +5,8 @@ import Homeproduct from "./ui/home-product";
 import Deals from "./ui/deals";
 
 export default function Home() {
+
+  
   return (
     <>
       <section>
