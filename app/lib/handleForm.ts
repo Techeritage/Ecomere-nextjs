@@ -147,7 +147,7 @@ export const getAllSubcategory = async () => {
 
 export const getAllParentCategory = async () => {
   try {
-    const res = await axios.get("/api/categories/parent");
+    const res = await axios.get("http://localhost:3000/api/categories/parent");
     return res.data;
   } catch (error) {
     console.error("Error getting category:", error);
@@ -175,9 +175,9 @@ export const deleteOneParentCategory = async (id: string) => {
   }
 };
 
-export const fetchOneCategory = async (id: string) => {
+export const fetchCategoriesByParent = async (id: string) => {
   try {
-    const res = await axios.get(`/api/categories?id=${id}`);
+    const res = await axios.get(`http://localhost:3000/api/categories?id=${id}`);
     return res.data;
   } catch (error) {
     console.error("Error fetching category:", error);

@@ -48,8 +48,8 @@ export async function GET(req: NextRequest) {
     const id = searchParams.get("id");
 
     if (id) {
-      const oneSubcategory = await SubCategory.findById({ _id: id });
-      if (!oneSubcategory) {
+      const subcateriesByParent = await SubCategory.find({ parent: id });
+      if (!subcateriesByParent) {
         return NextResponse.json(
           { message: "Subcategory not found" },
           { status: 404 }
@@ -57,7 +57,7 @@ export async function GET(req: NextRequest) {
       }
 
       return NextResponse.json({
-        data: oneSubcategory,
+        data: subcateriesByParent,
         success: true,
         status: 200,
       });
