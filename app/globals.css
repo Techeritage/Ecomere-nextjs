@@ -12,3 +12,7 @@
   width: 0px; /* Hide horizontal scrollbar */
   height: 0px; /* Hide vertical scrollbar */
 }
+
+.active {
+  @apply bg-orange text-white;
+}

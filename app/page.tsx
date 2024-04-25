@@ -18,6 +18,12 @@ export default function Home() {
           <Categories />
         </Suspense>
       </section>
+      <section>
+        <Suspense fallback="loading...">
+          <Homeproduct />
+        </Suspense>
+      </section>
+
     </main>
   );
 }

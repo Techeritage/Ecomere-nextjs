@@ -1,5 +1,6 @@
 import { connectToMongoDB } from "@/app/utils/config/mongodb"; // Adjust path as needed
-import Product from "@/app/utils/models/product";
+import { Product } from "@/app/utils/models/product";
+
 import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -15,59 +16,15 @@ interface ProductData {
   description: string;
   price: number;
   images: string[];
-  category: string;
-  properties: PropertiesData[];
+  subcategory: string;
   tag: string;
 }
+
 
 //modifying mongoose connect
 async function connectToDb() {
   if (!mongoose.connection.readyState) {
     await connectToMongoDB();
-  }
-}
-
-export async function POST(req: NextRequest) {
-  try {
-    // Connect to the database
-    await connectToDb();
-
-    // Extract product data from request body
-    const {
-      name,
-      description,
-      price,
-      images,
-      category,
-      properties,
-      tag,
-    }: ProductData = await req.json();
-
-    // Create a new product (replace with your product creation logic)
-    const newProduct = new Product({
-      name,
-      description,
-      price,
-      images,
-      category,
-      properties,
-      tag,
-    });
-    await newProduct.save();
-
-    return NextResponse.json({
-      status: 200,
-      success: true,
-      message: "product successfully created",
-    });
-  } catch (error: any) {
-    console.error(error);
-    return NextResponse.json({
-      status: 500,
-      success: false,
-      message: "Failed to add product",
-      error: error.message,
-    });
   }
 }
 
@@ -85,7 +42,7 @@ export async function GET(req: NextRequest) {
         data: filteredProducts,
       });
     } else {
-      const allProducts = await Product.find();
+      const allProducts = await Product.find().populate("tag");
       return NextResponse.json({
         status: 200,
         success: true,

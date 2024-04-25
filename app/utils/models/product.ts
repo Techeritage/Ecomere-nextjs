@@ -1,5 +1,15 @@
 import mongoose, { Schema } from "mongoose";
 
+const tagScchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
 const productSchema = new Schema(
   {
     name: {
@@ -19,14 +29,10 @@ const productSchema = new Schema(
     images: {
       type: [String], // Array of strings representing image URLs
     },
-    category: {
+    subcategory: {
       type: mongoose.Types.ObjectId,
-      ref: "categories",
+      ref: "subcategories",
     },
-    properties: {
-      type: [Object],
-    },
-
     tag: {
       type: mongoose.Types.ObjectId,
       ref: "tags",
@@ -35,6 +41,7 @@ const productSchema = new Schema(
   { timestamps: true }
 );
 
-const Product =
+export const Tag = mongoose.models.tags || mongoose.model("tags", tagScchema);
+
+export const Product =
   mongoose.models.products || mongoose.model("products", productSchema);
-export default Product;

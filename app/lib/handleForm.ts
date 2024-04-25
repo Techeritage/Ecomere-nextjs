@@ -7,27 +7,9 @@ interface PropertiesData {
 }
 
 /**********************PRODUCTS************************* */
-export const handleSubmit = async (data: {
-  name: string;
-  description: string;
-  price: number | undefined;
-  images: string[];
-  category: string;
-  properties: PropertiesData[];
-  tag: string;
-}) => {
-  try {
-    const response = await axios.post("/api/products", data);
-    return response.data;
-  } catch (error) {
-    console.error("Error submitting product:", error); // Handle network errors
-    // Show error message to the user
-  }
-};
-
 export const fetchProducts = async () => {
   try {
-    const response = await axios.get("/api/products");
+    const response = await axios.get("https://ecomere-nextjs.vercel.app/api/products");
     return response.data;
   } catch (error) {
     console.error("Error fetching product:", error);
