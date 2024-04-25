@@ -147,7 +147,7 @@ export const getAllSubcategory = async () => {
 
 export const getAllParentCategory = async () => {
   try {
-    const res = await axios.get("http://localhost:3000/api/categories/parent");
+    const res = await axios.get("https://ecomere-nextjs.vercel.app/api/categories/parent");
     return res.data;
   } catch (error) {
     console.error("Error getting category:", error);
