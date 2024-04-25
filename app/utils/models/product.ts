@@ -43,5 +43,6 @@ const productSchema = new Schema(
 
 export const Tag = mongoose.models.tags || mongoose.model("tags", tagScchema);
 
-export const Product =
+const Product =
   mongoose.models.products || mongoose.model("products", productSchema);
+export default Product;

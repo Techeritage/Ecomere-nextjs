@@ -1,5 +1,6 @@
 import { connectToMongoDB } from "@/app/utils/config/mongodb"; // Adjust path as needed
-import { Product } from "@/app/utils/models/product";
+import Product from "@/app/utils/models/product";
+
 
 import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
