@@ -36,7 +36,6 @@ const Categories = async() => {
                       width={90}
                       height={80}
                       alt={`${cat.name} image`}
-                      className="w-auto h-auto object-contain"
                     />
                   </div>
                   <p className="text-center font-semibold text-[12px] md:text-[13px]">

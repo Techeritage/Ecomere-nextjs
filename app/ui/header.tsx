@@ -1,6 +1,6 @@
 const Header = () => {
   return(
-    <nav className="">
+    <nav className="text-xl">
       <h2>e-shop</h2>
     </nav>
   );

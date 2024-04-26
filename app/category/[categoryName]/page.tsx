@@ -1,36 +1,14 @@
 "use client";
-import { fetchCategoriesByParent } from "@/app/lib/handleForm";
 import Breadcrumbs from "@/app/ui/breadcrumbs";
-import { useParams, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-
-interface data {
-  _id: string;
-  name: string;
-}
+import Campaign from "@/app/ui/campaign";
+import Catlists from "@/app/ui/catlists";
+import { useParams} from "next/navigation";
 
 export default function CategoryPage() {
-  const [subcategories, setSubcatgories] = useState();
   const { categoryName }: { categoryName: string } = useParams();
   const decodedName =
     typeof categoryName === "string" ? decodeURIComponent(categoryName) : "";
-
-  const searchParams = useSearchParams();
-  const id = searchParams.get("categoryId");
-
-  async function getSubCat() {
-    if(id) {
-      const res = await fetchCategoriesByParent(id);
-      const data = res.data;
-      setSubcatgories(data);
-    } 
-  }
-
-  useEffect(() =>{
-    getSubCat();
-  },[]);
     
-
     return (
       <main>
         <section>
@@ -44,6 +22,12 @@ export default function CategoryPage() {
               },
             ]}
           />
+        </section>
+        <section>
+          <Campaign name={decodedName} />
+        </section>
+        <section>
+          <Catlists />
         </section>
       </main>
     );

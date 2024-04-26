@@ -30,7 +30,6 @@ async function connectToDb() {
 export async function GET(req: NextRequest) {
   try {
     await connectToDb();
-
     const allProducts = await Product.find().populate("tag");
     return NextResponse.json({
       status: 200,

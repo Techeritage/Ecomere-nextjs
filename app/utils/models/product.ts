@@ -10,6 +10,20 @@ const tagScchema = new Schema(
   { timestamps: true }
 );
 
+const SubcategorySchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    parent: {
+      type: mongoose.Types.ObjectId,
+      ref: "parentCategory",
+    },
+  },
+  { timestamps: true }
+);
+
 const productSchema = new Schema(
   {
     name: {
@@ -42,6 +56,9 @@ const productSchema = new Schema(
 );
 
 export const Tag = mongoose.models.tags || mongoose.model("tags", tagScchema);
+
+export const SubCategory =
+  models.subcategories || model("subcategories", SubcategorySchema);
 
 const Product =
   mongoose.models.products || mongoose.model("products", productSchema);
