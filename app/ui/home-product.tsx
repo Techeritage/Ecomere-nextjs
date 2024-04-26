@@ -47,7 +47,7 @@ const Homeproduct = () => {
   }, []);
 
   return (
-    <div className="px-[5%] md:px-[10%] py-[40px] bg-[#f4f4f4]">
+    <div className="px-[3%] md:px-[10%] py-[40px] bg-[#f4f4f4]">
       <h2
         className={`${ptSans.className} font-bold text-xl md:text-2xl text-center mb-3`}
       >

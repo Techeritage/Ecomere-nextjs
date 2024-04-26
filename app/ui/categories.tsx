@@ -15,7 +15,7 @@ const Categories = async() => {
   const data = res?.data;
 
   return (
-    <div className="px-[5%] py-[40px] md:px-[10%] md:py-[50px] border-b">
+    <div className="px-[3%] py-[40px] md:px-[10%] md:py-[50px] border-b">
       <h2
         className={`${ptSans.className} font-bold text-center text-xl md:text-2xl`}
       >
@@ -26,17 +26,17 @@ const Categories = async() => {
           {data &&
             data.map((cat: catData) => (
               <Link className="text-black no-underline" href={`/category/${cat._id}`} key={cat._id}>
-                <div className="h-[150px] min-w-[120px] md:h-[150px] md:w-[130px] rounded-md flex flex-col gap-1 items-center justify-between">
+                <div className="min-w-[120px] md:h-[150px] md:w-[130px] rounded-md flex flex-col gap-1 items-center justify-between">
                   <div
-                    className="p-2 rounded-md flex items-center justify-center w-full h-[100px]"
+                    className="rounded-md flex items-center justify-center w-full h-[110px]"
                     style={{ backgroundColor: `${cat.bgColor}` }}
                   >
                     <Image
                       src={cat.image}
-                      width={100}
+                      width={90}
                       height={80}
                       alt="laptop image"
-                      className="object-contain w-[100px] h-[80px]"
+                      className="object-contain"
                     />
                   </div>
                   <p className="text-center text-[12px] md:text-[13px]">
