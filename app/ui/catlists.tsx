@@ -61,7 +61,7 @@ export default function Catlists() {
             {subcategories.length > 0 &&
               subcategories.map((cat) => (
                 <li
-                  className={`text-sm cursor-pointer tracking-wide md:text-[16px] text-gray-800 ${
+                  className={`text-sm cursor-pointer tracking-wide md:text-[16px] pb-4 text-gray-800 ${
                     activeSubcategory === cat._id ? "active" : ""
                   }`}
                   key={cat._id}
