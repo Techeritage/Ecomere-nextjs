@@ -24,6 +24,7 @@ export default function Catlists() {
   const [selectedSort, setSelectedSort] = useState<
     "a-z" | "z-a" | "l-h" | "h-l"
   >("a-z"); // Initial sort option
+  const [sortedProducts, setSortedProducts] = useState<ProductData[]>([]);
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(
     null
   );
@@ -55,15 +56,15 @@ export default function Catlists() {
     }
   }
 
-  function checkUp() {
-    if (products.length > 0) {
-      setProducts(SortProducts(products, "name", "asc")); // Sort by name (a-z) initially
-    }
-  }
-
   useEffect(() => {
     getSubCat();
   }, []);
+
+  useEffect(() => {
+    if (products) {
+      handleSortChange("a-z");
+    }
+  }, [products]);
 
   function SortProducts(
     products: ProductData[],
@@ -94,7 +95,7 @@ export default function Catlists() {
   const handleSortChange = (newSort: "a-z" | "z-a" | "l-h" | "h-l") => {
     const newSortBy = newSort === "a-z" || newSort === "z-a" ? "name" : "price";
     const newOrder = newSort === "a-z" || newSort === "l-h" ? "asc" : "desc";
-    setProducts(SortProducts(products, newSortBy, newOrder));
+    setSortedProducts(SortProducts(products, newSortBy, newOrder));
     setSelectedSort(newSort);
   };
 
@@ -142,8 +143,8 @@ export default function Catlists() {
             <div className="flex justify-center items-center h-40">
               Loading...
             </div>
-          ) : products && products.length > 0 ? (
-            products.map((p: ProductData) => (
+          ) : products && sortedProducts.length > 0 ? (
+            sortedProducts.map((p: ProductData) => (
               <ProductCard
                 key={p._id}
                 name={p.name}
