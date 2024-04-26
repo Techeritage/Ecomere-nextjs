@@ -118,7 +118,7 @@ export default function Catlists() {
               ))}
           </ul>
         </div>
-        <div className="flex gap-1">
+        <div className="flex gap-1  pb-4">
           <p>Sort By:</p>
           <div className="flex gap-2">
             <select

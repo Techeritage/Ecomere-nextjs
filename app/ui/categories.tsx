@@ -38,7 +38,7 @@ const Categories = async() => {
                       alt={`${cat.name} image`}
                     />
                   </div>
-                  <p className="text-center font-semibold text-[12px] md:text-[13px]">
+                  <p className="text-center text-gray-700 font-semibold text-[12px] md:text-[13px]">
                     {cat.name}
                   </p>
                 </div>
