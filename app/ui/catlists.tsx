@@ -22,6 +22,8 @@ export default function Catlists() {
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(
     null
   );
+  const [sortBy, setSortBy] = useState<string>("name");
+
   const searchParams = useSearchParams();
   const id = searchParams.get("categoryId");
 
@@ -53,6 +55,15 @@ export default function Catlists() {
     getSubCat();
   }, []);
 
+  const handleSort = (sortBy: string) => {
+    if (sortBy === "name") {
+      const sortedProducts = [...products].sort((a, b) => {
+        return a.name.localeCompare(b.name); // Use localeCompare for string comparison
+      });
+      setProducts(sortedProducts);
+    }
+  };
+  
   return (
     <div className="mt-3 px-[3%] md:px-[10%]">
       <div className="flex items-center justify-between border-b">
@@ -72,8 +83,12 @@ export default function Catlists() {
               ))}
           </ul>
         </div>
-        <div>
+        <div className="flex gap-1">
           <p>Sort By:</p>
+          <select value={sortBy} onChange={(e) => handleSort(e.target.value)}>
+            <option value="name">Name</option>
+            {/* Add additional sorting options here */}
+          </select>
         </div>
       </div>
       <div className="py-[40px]">
@@ -91,9 +106,9 @@ export default function Catlists() {
                 price={p.price}
                 id={p._id}
                 images={p.images}
-                href={'/products'}
-                bg={'bg-gray-100'}
-                btnBg={'bg-white'}
+                href={"/products"}
+                bg={"bg-gray-100"}
+                btnBg={"bg-white"}
               />
             ))
           ) : (
