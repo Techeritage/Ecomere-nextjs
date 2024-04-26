@@ -24,8 +24,7 @@ const ProductCard = ({
             src={images[0]}
             width={75}
             height={70}
-            alt="product card image"
-            className="object-contain"
+            alt="product card image"  
           />
         </div>
         <div className="w-full p-2">

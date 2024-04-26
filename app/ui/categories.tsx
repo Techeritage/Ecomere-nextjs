@@ -26,7 +26,7 @@ const Categories = async() => {
           {data &&
             data.map((cat: catData) => (
               <Link className="text-black no-underline" href={`/category/${cat._id}`} key={cat._id}>
-                <div className="min-w-[120px] md:h-[150px] md:w-[130px] rounded-md flex flex-col gap-1 items-center justify-between">
+                <div className="min-w-[120px] md:w-[130px] rounded-md flex flex-col gap-1 items-center justify-between">
                   <div
                     className="rounded-md flex items-center justify-center w-full h-[110px]"
                     style={{ backgroundColor: `${cat.bgColor}` }}
@@ -36,10 +36,10 @@ const Categories = async() => {
                       width={90}
                       height={80}
                       alt="laptop image"
-                      className="object-contain"
+                      className="w-auto h-auto object-contain"
                     />
                   </div>
-                  <p className="text-center text-[12px] md:text-[13px]">
+                  <p className="text-center font-semibold text-[12px] md:text-[13px]">
                     {cat.name}
                   </p>
                 </div>
