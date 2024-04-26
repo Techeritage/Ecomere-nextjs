@@ -103,7 +103,7 @@ export default function Catlists() {
     <div className="mt-3 px-[3%] md:px-[10%]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between md:border-b">
         <div className="border-b md:border-0">
-          <ul className="flex gap-4 pl-0 mb-0 md:mb-[-15px]">
+          <ul className="flex gap-4 pl-0 mb-0 md:mb-[-20px]">
             {subcategories.length > 0 &&
               subcategories.map((cat) => (
                 <li
@@ -137,7 +137,7 @@ export default function Catlists() {
           </div>
         </div>
       </div>
-      <div className="py-[10px]">
+      <div className="py-[10px] md:py-[40px]">
         <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-5">
           {loading ? (
             <div className="flex justify-center items-center h-40">
@@ -153,8 +153,8 @@ export default function Catlists() {
                 id={p._id}
                 images={p.images}
                 href={"/products"}
-                bg={"bg-gray-100"}
-                btnBg={"bg-white"}
+                bg={"#f4f4f4"}
+                btnBg={"white"}
               />
             ))
           ) : (

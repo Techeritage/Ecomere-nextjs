@@ -95,8 +95,8 @@ const Homeproduct = () => {
                 id={p._id}
                 images={p.images}
                 href={'/products'}
-                bg={'bg-white'}
-                btnBg={'bg-gray-100'}
+                bg={'white'}
+                btnBg={'#f4f4f4'}
               />
             ))
           ) : (

@@ -18,30 +18,40 @@ const ProductCard = ({
   price: number;
   id: string;
   images: string[];
-  href: string,
-  bg: string,
-  btnBg: string,
+  href: string;
+  bg: string;
+  btnBg: string;
 }) => {
   return (
     <Link href={href} className="no-underline">
-      <div className={`relative rounded-md ${bg} max-w-[200px] h-[290px]`}>
+      <div
+        className={`relative rounded-md max-w-[200px] h-[290px]`}
+        style={{ backgroundColor: `${bg}` }}
+      >
         <div className="w-full rounded-lg h-[120px] mb-1 flex items-center justify-center">
           <Image
             src={images[0]}
             width={75}
             height={70}
-            alt="product card image"  
+            alt="product card image"
           />
         </div>
         <div className="w-full p-2">
           <RatingStar count={5} />
           <p className="font-semibold text-sm mb-1 text-gray-700">{name}</p>
-          <p className="text-[12px] max-h-[40px] truncate ... mb-1 text-gray-600 md:text-sm">{desc}</p>
-          <p className={`${ptSans.className} text-black font-bold text-lg mb-2`}>
+          <p className="text-[12px] max-h-[40px] truncate ... mb-1 text-gray-600 md:text-sm">
+            {desc}
+          </p>
+          <p
+            className={`${ptSans.className} text-black font-bold text-lg mb-2`}
+          >
             ${price}
           </p>
         </div>
-        <button className= {`${btnBg} text-black absolute bottom-2 left-[50%] translate-x-[-50%] rounded-full w-[90%] p-2 text-sm font-semibold`}>
+        <button
+          className={`text-black absolute bottom-2 left-[50%] translate-x-[-50%] rounded-full w-[90%] p-2 text-sm font-semibold`}
+          style={{ backgroundColor: `${btnBg}` }}
+        >
           Add To Cart
         </button>
       </div>
