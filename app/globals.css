@@ -14,5 +14,5 @@
 }
 
 .active {
-  @apply bg-orange text-white;
+  @apply border-b-2 border-b-orange font-bold;
 }

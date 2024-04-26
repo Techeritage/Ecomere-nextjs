@@ -17,7 +17,7 @@ const Categories = async() => {
   return (
     <div className="px-[5%] py-[40px] md:px-[10%] md:py-[50px] border-b">
       <h2
-        className={`${ptSans.className} font-bold text-center text-2xl md:text-3xl`}
+        className={`${ptSans.className} font-bold text-center text-xl md:text-2xl`}
       >
         Shop by Categories
       </h2>

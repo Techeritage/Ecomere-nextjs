@@ -18,14 +18,19 @@ const Homeproduct = () => {
   const [products, setProducts] = useState<ProductData[]>([]);
   const [loading, setLoading] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState<ProductData[]>([]);
-  const [activeCategory, setActiveCategory] = useState<string>("New Arrival");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
 
   const filterByCategory = (category: string) => {
-    const filtered = products.filter(
-      (product) =>
-        product.tag.name.trim().toLowerCase() === category.trim().toLowerCase()
-    );
-    setFilteredProducts(filtered);
+    if (category === "All") {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter(
+        (product) =>
+          product.tag.name.trim().toLowerCase() ===
+          category.trim().toLowerCase()
+      );
+      setFilteredProducts(filtered);
+    }
     setActiveCategory(category);
   };
 
@@ -34,6 +39,7 @@ const Homeproduct = () => {
       const res = await fetchProducts();
       if (res?.data) {
         setProducts(res.data);
+        setFilteredProducts(res.data); // Initially display all products
         setLoading(false);
       }
     };
@@ -43,13 +49,21 @@ const Homeproduct = () => {
   return (
     <div className="px-[5%] md:px-[10%] py-[40px] bg-[#f4f4f4]">
       <h2
-        className={`${ptSans.className} font-bold text-2xl md:text-3xl text-center mb-3`}
+        className={`${ptSans.className} font-bold text-xl md:text-2xl text-center mb-3`}
       >
         Our Products
       </h2>
       <div className="flex gap-3 justify-center mb-8">
         <button
-          className={`text-sm md:text-lg text-gray-800 ${
+          className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
+            activeCategory === "All" ? "active" : ""
+          }`}
+          onClick={() => filterByCategory("All")}
+        >
+          All
+        </button>
+        <button
+          className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
             activeCategory === "New Arrival" ? "active" : ""
           }`}
           onClick={() => filterByCategory("New Arrival")}
@@ -57,15 +71,7 @@ const Homeproduct = () => {
           New Arrival
         </button>
         <button
-          className={`text-sm md:text-lg text-gray-800 ${
-            activeCategory === "Featured Products" ? "active" : ""
-          }`}
-          onClick={() => filterByCategory("Featured Products")}
-        >
-          Featured Products
-        </button>
-        <button
-          className={`text-sm md:text-lg text-gray-800 ${
+          className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
             activeCategory === "Best Seller" ? "active" : ""
           }`}
           onClick={() => filterByCategory("Best Seller")}
