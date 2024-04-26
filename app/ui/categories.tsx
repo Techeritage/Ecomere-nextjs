@@ -25,7 +25,7 @@ const Categories = async() => {
         <div className="gap-2 md:gap-4 hide-scrollbar mt-4 md:mt-8 flex lg:justify-center flex-nowrap overflow-x-scroll">
           {data &&
             data.map((cat: catData) => (
-              <Link className="text-black no-underline" href={`/category/${cat._id}`} key={cat._id}>
+              <Link className="text-black no-underline" href={`/category/${cat.name}?categoryId=${cat._id}`} key={cat._id}>
                 <div className="min-w-[120px] md:w-[130px] rounded-md flex flex-col gap-1 items-center justify-between">
                   <div
                     className="rounded-md flex items-center justify-center w-full h-[110px]"
@@ -35,7 +35,7 @@ const Categories = async() => {
                       src={cat.image}
                       width={90}
                       height={80}
-                      alt="laptop image"
+                      alt={`${cat.name} image`}
                       className="w-auto h-auto object-contain"
                     />
                   </div>
