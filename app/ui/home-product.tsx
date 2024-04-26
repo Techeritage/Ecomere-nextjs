@@ -36,7 +36,6 @@ const Homeproduct = () => {
         setProducts(res.data);
         setLoading(false);
       }
-      
     };
     fetchData();
   }, []);
