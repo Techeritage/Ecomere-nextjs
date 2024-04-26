@@ -7,6 +7,8 @@ import {
 } from "../lib/handleForm";
 import ProductCard from "./productCard";
 
+type SortBy = "name" | "price" | "default";
+
 interface ProductData {
   _id: string;
   name: string;
@@ -19,10 +21,12 @@ export default function Catlists() {
   const [subcategories, setSubcategories] = useState<ProductData[]>([]);
   const [products, setProducts] = useState<ProductData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedSort, setSelectedSort] = useState<
+    "a-z" | "z-a" | "l-h" | "h-l"
+  >("a-z"); // Initial sort option
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(
     null
   );
-  const [sortBy, setSortBy] = useState<string>("name");
 
   const searchParams = useSearchParams();
   const id = searchParams.get("categoryId");
@@ -51,19 +55,49 @@ export default function Catlists() {
     }
   }
 
+  function checkUp() {
+    if (products.length > 0) {
+      setProducts(SortProducts(products, "name", "asc")); // Sort by name (a-z) initially
+    }
+  }
+
   useEffect(() => {
     getSubCat();
   }, []);
 
-  const handleSort = (sortBy: string) => {
-    if (sortBy === "name") {
-      const sortedProducts = [...products].sort((a, b) => {
-        return a.name.localeCompare(b.name); // Use localeCompare for string comparison
-      });
-      setProducts(sortedProducts);
+  function SortProducts(
+    products: ProductData[],
+    sortBy: SortBy,
+    order: "asc" | "desc"
+  ): ProductData[] {
+    if (products.length === 0) {
+      return products; // No need to sort an empty array
     }
+
+    // Sort based on the provided sortBy and order
+    return products.slice().sort((a, b) => {
+      if (sortBy === "name") {
+        const nameA = a.name.toLowerCase(); // Ensure case-insensitive sorting
+        const nameB = b.name.toLowerCase();
+        if (nameA < nameB) return order === "asc" ? -1 : 1;
+        if (nameA > nameB) return order === "asc" ? 1 : -1;
+        return 0;
+      } else if (sortBy === "price") {
+        return (a.price - b.price) * (order === "asc" ? 1 : -1);
+      } else {
+        // Handle default or unexpected sortBy values (optional)
+        return 0; // Or throw an error if needed
+      }
+    });
+  }
+
+  const handleSortChange = (newSort: "a-z" | "z-a" | "l-h" | "h-l") => {
+    const newSortBy = newSort === "a-z" || newSort === "z-a" ? "name" : "price";
+    const newOrder = newSort === "a-z" || newSort === "l-h" ? "asc" : "desc";
+    setProducts(SortProducts(products, newSortBy, newOrder));
+    setSelectedSort(newSort);
   };
-  
+
   return (
     <div className="mt-3 px-[3%] md:px-[10%]">
       <div className="flex items-center justify-between border-b">
@@ -85,10 +119,21 @@ export default function Catlists() {
         </div>
         <div className="flex gap-1">
           <p>Sort By:</p>
-          <select value={sortBy} onChange={(e) => handleSort(e.target.value)}>
-            <option value="name">Name</option>
-            {/* Add additional sorting options here */}
-          </select>
+          <div className="flex gap-2">
+            <select
+              value={selectedSort}
+              onChange={(e) =>
+                handleSortChange(
+                  e.target.value as "a-z" | "z-a" | "l-h" | "h-l"
+                )
+              }
+            >
+              <option value="a-z">Alphabetically, A-Z</option>
+              <option value="z-a">Alphabetically, Z-A</option>
+              <option value="l-h">Price, low to high</option>
+              <option value="h-l">Price, high to low</option>
+            </select>
+          </div>
         </div>
       </div>
       <div className="py-[40px]">
