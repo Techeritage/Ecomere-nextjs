@@ -103,11 +103,11 @@ export default function Catlists() {
     <div className="mt-3 px-[3%] md:px-[10%]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between md:border-b">
         <div className="border-b md:border-0">
-          <ul className="flex gap-4 pl-0 mb-0">
+          <ul className="flex gap-4 pl-0 md:mb-[-15px]">
             {subcategories.length > 0 &&
               subcategories.map((cat) => (
                 <li
-                  className={`text-sm cursor-pointer tracking-wide md:text-[16px] pb-4 text-gray-800 ${
+                  className={`text-sm cursor-pointer tracking-wide md:text-[16px] pb-[16px] text-gray-800 ${
                     activeSubcategory === cat._id ? "active" : ""
                   }`}
                   key={cat._id}
@@ -118,10 +118,10 @@ export default function Catlists() {
               ))}
           </ul>
         </div>
-        <div className="flex gap-1 py-3 justify-end items-center">
-          <p className="font-semibold text-sm">Sort By:</p>
+        <div className="flex gap-1 py-3 justify-end items-center md:pb-[16px]">
+          <p className="font-semibold text-sm mb-0 md:text-[16px]">Sort By:</p>
           <div className="flex gap-2">
-            <select className="bg-transparent border-0 outline-0 text-sm"
+            <select className="bg-transparent border-0 outline-0 text-sm md:text-[16px]"
               value={selectedSort}
               onChange={(e) =>
                 handleSortChange(
