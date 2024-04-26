@@ -9,7 +9,7 @@ interface PropertiesData {
 /**********************PRODUCTS************************* */
 export const fetchProducts = async () => {
   try {
-    const response = await axios.get("https://ecomere-nextjs.vercel.app/api/products");
+    const response = await axios.get("/api/products");
     return response.data;
   } catch (error) {
     console.error("Error fetching product:", error);
