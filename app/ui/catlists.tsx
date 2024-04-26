@@ -102,7 +102,7 @@ export default function Catlists() {
   return (
     <div className="mt-3 px-[3%] md:px-[10%]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between md:border-b">
-        <div className="border-b">
+        <div className="border-b md:border-0">
           <ul className="flex gap-4 pl-0 mb-0">
             {subcategories.length > 0 &&
               subcategories.map((cat) => (
@@ -119,7 +119,7 @@ export default function Catlists() {
           </ul>
         </div>
         <div className="flex gap-1 py-3 justify-end items-center">
-          <p>Sort By:</p>
+          <p className="font-semibold text-sm">Sort By:</p>
           <div className="flex gap-2">
             <select className="bg-transparent border-0 outline-0 text-sm"
               value={selectedSort}
@@ -137,7 +137,7 @@ export default function Catlists() {
           </div>
         </div>
       </div>
-      <div className="py-[40px]">
+      <div className="py-[20px]">
         <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-5">
           {loading ? (
             <div className="flex justify-center items-center h-40">
