@@ -58,7 +58,7 @@ const productSchema = new Schema(
 export const Tag = mongoose.models.tags || mongoose.model("tags", tagScchema);
 
 export const SubCategory =
-  models.subcategories || model("subcategories", SubcategorySchema);
+  mongoose.models.subcategories || mongoose.model("subcategories", SubcategorySchema);
 
 const Product =
   mongoose.models.products || mongoose.model("products", productSchema);
