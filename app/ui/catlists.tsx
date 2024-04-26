@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import {
   fetchCategoriesByParent,
-  fetchProductsByParent,
+  fetchProductsBySubcategory,
 } from "../lib/handleForm";
 import ProductCard from "./productCard";
 
@@ -16,7 +16,7 @@ interface ProductData {
 }
 
 export default function Catlists() {
-  const [subcategories, setSubcatgories] = useState<ProductData[]>([]);
+  const [subcategories, setSubcategories] = useState<ProductData[]>([]);
   const [products, setProducts] = useState<ProductData[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(
@@ -29,41 +29,43 @@ export default function Catlists() {
     if (id) {
       const res = await fetchCategoriesByParent(id);
       const data = res.data;
-      setSubcatgories(data);
+      setSubcategories(data);
       setLoading(false);
+      // Set the first subcategory as active if there are subcategories
+      if (data.length > 0) {
+        setActiveSubcategory(data[0]._id);
+        getProductsBySubcategory(data[0]._id);
+      }
     }
   }
 
-  async function getProductsByParent() {
-    if (id) {
-      const res = await fetchProductsByParent(id);
+  async function getProductsBySubcategory(subcategoryId: string) {
+    if (subcategoryId) {
+      const res = await fetchProductsBySubcategory(subcategoryId);
       if (res.status === 200) {
-        console.log(res);
-        //setProducts(res.data);
-        //setActiveSubcategory(subcategoryId);
+        setProducts(res.data);
+        setActiveSubcategory(subcategoryId);
       }
     }
   }
 
   useEffect(() => {
     getSubCat();
-    getProductsByParent();
   }, []);
+
   return (
     <div className="mt-3 px-[3%] md:px-[10%]">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between border-b">
         <div>
-          <ul className="flex gap-2 pl-0">
-            <li className="text-sm tracking-wide md:text-[16px] text-gray-800 pb-1">
-              All
-            </li>
+          <ul className="flex gap-4 pl-0 mb-0">
             {subcategories.length > 0 &&
               subcategories.map((cat) => (
                 <li
-                  className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
+                  className={`text-sm cursor-pointer tracking-wide md:text-[16px] text-gray-800 ${
                     activeSubcategory === cat._id ? "active" : ""
                   }`}
                   key={cat._id}
+                  onClick={() => getProductsBySubcategory(cat._id)}
                 >
                   {cat.name}
                 </li>
@@ -74,7 +76,7 @@ export default function Catlists() {
           <p>Sort By:</p>
         </div>
       </div>
-      <div>
+      <div className="py-[40px]">
         <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-5">
           {loading ? (
             <div className="flex justify-center items-center h-40">
@@ -89,10 +91,13 @@ export default function Catlists() {
                 price={p.price}
                 id={p._id}
                 images={p.images}
+                href={'/products'}
+                bg={'bg-gray-100'}
+                btnBg={'bg-white'}
               />
             ))
           ) : (
-            <p>No products found.</p>
+            <p>No product found.</p>
           )}
         </div>
       </div>

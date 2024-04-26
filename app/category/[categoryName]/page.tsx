@@ -12,18 +12,6 @@ export default function CategoryPage() {
     return (
       <main>
         <section>
-          <Breadcrumbs
-            breadcrumbs={[
-              { label: "Home", href: "/" },
-              {
-                label: decodedName,
-                href: "/category",
-                active: true,
-              },
-            ]}
-          />
-        </section>
-        <section>
           <Campaign name={decodedName} />
         </section>
         <section>

@@ -9,16 +9,22 @@ const ProductCard = ({
   price,
   id,
   images,
+  href,
+  bg,
+  btnBg,
 }: {
   name: string;
   desc: string;
   price: number;
   id: string;
   images: string[];
+  href: string,
+  bg: string,
+  btnBg: string,
 }) => {
   return (
-    <Link href='/product' className="no-underline">
-      <div className="relative rounded-md bg-white max-w-[200px] h-[290px]">
+    <Link href={href} className="no-underline">
+      <div className={`relative rounded-md ${bg} max-w-[200px] h-[290px]`}>
         <div className="w-full rounded-lg h-[120px] mb-1 flex items-center justify-center">
           <Image
             src={images[0]}
@@ -35,7 +41,7 @@ const ProductCard = ({
             ${price}
           </p>
         </div>
-        <button className="bg-[#f4f4f4] text-black absolute bottom-2 left-[50%] translate-x-[-50%] rounded-full w-[90%] p-2 text-sm font-semibold">
+        <button className= {`${btnBg} text-black absolute bottom-2 left-[50%] translate-x-[-50%] rounded-full w-[90%] p-2 text-sm font-semibold`}>
           Add To Cart
         </button>
       </div>

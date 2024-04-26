@@ -26,7 +26,7 @@ export const fetchProductByQuery = async (query: string) => {
   }
 };
 
-export const fetchProductsByParent = async (id: string) => {
+export const fetchProductsBySubcategory = async (id: string) => {
   try {
     const res = await axios.get(`/api/products/${id}`);
     return res.data;

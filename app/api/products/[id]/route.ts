@@ -19,13 +19,11 @@ export async function GET(
     const { id } = params;
 
     if (id) {
-      const allProductsByParent = await Product.find({
-        subcategory: { $elemMatch: { parent: id } },
-      }).populate('subcategory');
+      const allProductsBySubcategory = await Product.find({ subcategory: id });
       return NextResponse.json({
         status: 200,
         success: true,
-        data: allProductsByParent,
+        data: allProductsBySubcategory,
       });
     }
   } catch (error: any) {
