@@ -101,14 +101,14 @@ export default function Catlists() {
 
   return (
     <div className="mt-3 px-[3%] md:px-[10%]">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between md:border-b">
-        <div className="border-b md:border-0">
-          <ul className="flex gap-4 pl-0 mb-0 md:mb-[-20px]">
+      <div className="flex flex-col md:max-h-[100px] bg-gray-50 md:flex-row md:items-center md:justify-between md:border-b">
+        <div className="h-[50px] border-b md:border-0 flex items-center">
+          <ul className="flex gap-4 pl-0 mb-0 items-center">
             {subcategories.length > 0 &&
               subcategories.map((cat) => (
                 <li
-                  className={`text-sm cursor-pointer tracking-wide md:text-[16px] pb-[16px] text-gray-800 ${
-                    activeSubcategory === cat._id ? "active" : ""
+                  className={`relative text-sm cursor-pointer tracking-wide md:text-[16px] pb-0 text-gray-800 ${
+                    activeSubcategory === cat._id ? "activeLink font-semibold" : ""
                   }`}
                   key={cat._id}
                   onClick={() => getProductsBySubcategory(cat._id)}
@@ -118,7 +118,7 @@ export default function Catlists() {
               ))}
           </ul>
         </div>
-        <div className="flex gap-1 py-3 justify-end items-center md:pb-[16px]">
+        <div className="flex gap-1 py-3 justify-end items-center">
           <p className="font-semibold text-sm mb-0 md:text-[16px]">Sort By:</p>
           <div className="flex gap-2">
             <select className="bg-transparent border-0 outline-0 text-sm md:text-[16px]"

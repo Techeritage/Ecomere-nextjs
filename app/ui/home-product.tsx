@@ -56,7 +56,7 @@ const Homeproduct = () => {
       <div className="flex gap-3 justify-center mb-8">
         <button
           className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
-            activeCategory === "All" ? "active" : ""
+            activeCategory === "All" ? "border-b-2 border-orange font-semibold" : ""
           }`}
           onClick={() => filterByCategory("All")}
         >
@@ -64,7 +64,7 @@ const Homeproduct = () => {
         </button>
         <button
           className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
-            activeCategory === "New Arrival" ? "active" : ""
+            activeCategory === "New Arrival" ? 'border-b-2 border-orange font-semibold' : ""
           }`}
           onClick={() => filterByCategory("New Arrival")}
         >
@@ -72,7 +72,7 @@ const Homeproduct = () => {
         </button>
         <button
           className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
-            activeCategory === "Best Seller" ? "active" : ""
+            activeCategory === "Best Seller" ? "border-b-2 border-orange font-semibold" : ""
           }`}
           onClick={() => filterByCategory("Best Seller")}
         >
