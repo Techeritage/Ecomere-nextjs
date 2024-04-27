@@ -43,7 +43,7 @@ export const getAllParentCategory = async () => {
 
 export const fetchCategoriesByParent = async (id: string) => {
   try {
-    const res = await axios.get(`/api/categories?id=${id}`);
+    const res = await axios.get(`/api/categories/${id}`);
     return res.data;
   } catch (error) {
     console.error("Error fetching category:", error);
