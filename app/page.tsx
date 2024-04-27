@@ -3,7 +3,6 @@ import Logo from "./ui/logo";
 import Categories from "./ui/categories";
 import Homeproduct from "./ui/home-product";
 import Deals from "./ui/deals";
-import Test from "./ui/test";
 import { Suspense } from "react";
 import { CardsSkeleton } from "./ui/skeletons";
 
@@ -22,6 +21,9 @@ export default function Home() {
         <Suspense fallback="loading...">
           <Homeproduct />
         </Suspense>
+      </section>
+      <section>
+        <Logo />
       </section>
 
     </main>

@@ -1,5 +1,4 @@
 "use client";
-import Breadcrumbs from "@/app/ui/breadcrumbs";
 import Campaign from "@/app/ui/campaign";
 import Catlists from "@/app/ui/catlists";
 import { useParams} from "next/navigation";
@@ -12,7 +11,7 @@ export default function CategoryPage() {
     return (
       <main>
         <section>
-          <Campaign name={decodedName} />
+          <Campaign name={decodedName} />   
         </section>
         <section>
           <Catlists />

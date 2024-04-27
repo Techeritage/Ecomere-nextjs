@@ -33,7 +33,7 @@ const ProductCard = ({
             src={images[0]}
             width={75}
             height={70}
-            alt="product card image"
+            alt={`${name} image`}
           />
         </div>
         <div className="w-full p-2">

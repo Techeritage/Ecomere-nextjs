@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const parentCategorySchema = new Schema(
   {
@@ -18,4 +18,5 @@ const parentCategorySchema = new Schema(
 );
 
 export const ParentCategory =
-  models.parentcategories || model("parentcategories", parentCategorySchema);
+  mongoose.models.parentcategories ||
+  mongoose.model("parentcategories", parentCategorySchema);

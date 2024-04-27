@@ -6,16 +6,7 @@ import {
   fetchProductsBySubcategory,
 } from "../lib/handleForm";
 import ProductCard from "./productCard";
-
-type SortBy = "name" | "price" | "default";
-
-interface ProductData {
-  _id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: string[];
-}
+import { ProductData, SortBy } from "../lib/definitions";
 
 export default function Catlists() {
   const [subcategories, setSubcategories] = useState<ProductData[]>([]);
@@ -60,12 +51,6 @@ export default function Catlists() {
     getSubCat();
   }, []);
 
-  useEffect(() => {
-    if (products) {
-      handleSortChange("a-z");
-    }
-  }, [products]);
-
   function SortProducts(
     products: ProductData[],
     sortBy: SortBy,
@@ -98,6 +83,13 @@ export default function Catlists() {
     setSortedProducts(SortProducts(products, newSortBy, newOrder));
     setSelectedSort(newSort);
   };
+
+  useEffect(() => {
+    if (products) {
+      handleSortChange("a-z");
+    }
+  }, [products]);
+
 
   return (
     <div className="mt-3 px-[3%] md:px-[10%]">
@@ -143,7 +135,7 @@ export default function Catlists() {
             <div className="flex justify-center items-center h-40">
               Loading...
             </div>
-          ) : products && sortedProducts.length > 0 ? (
+          ) : products && products.length > 0 && sortedProducts.length > 0 ? (
             sortedProducts.map((p: ProductData) => (
               <ProductCard
                 key={p._id}

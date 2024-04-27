@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const tagScchema = new Schema(
+const tagSchema = new Schema(
   {
     name: {
       type: String,
@@ -55,10 +55,11 @@ const productSchema = new Schema(
   { timestamps: true }
 );
 
-export const Tag = mongoose.models.tags || mongoose.model("tags", tagScchema);
+export const Tag = mongoose.models.tags || mongoose.model("tags", tagSchema);
 
 export const SubCategory =
-  mongoose.models.subcategories || mongoose.model("subcategories", SubcategorySchema);
+  mongoose.models.subcategories ||
+  mongoose.model("subcategories", SubcategorySchema);
 
 const Product =
   mongoose.models.products || mongoose.model("products", productSchema);

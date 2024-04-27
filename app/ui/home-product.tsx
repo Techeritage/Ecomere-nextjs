@@ -3,16 +3,7 @@ import React, { useState, useEffect } from "react";
 import { fetchProducts } from "../lib/handleForm";
 import { ptSans } from "./fonts";
 import ProductCard from "./productCard";
-
-interface ProductData {
-  name: string;
-  description: string;
-  price: number;
-  images: string[];
-  subcategory: string;
-  tag: { name: string };
-  _id: string;
-}
+import { ProductData } from "../lib/definitions";
 
 const Homeproduct = () => {
   const [products, setProducts] = useState<ProductData[]>([]);
@@ -56,7 +47,9 @@ const Homeproduct = () => {
       <div className="flex gap-3 justify-center mb-8">
         <button
           className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
-            activeCategory === "All" ? "border-b-2 border-orange font-semibold" : ""
+            activeCategory === "All"
+              ? "border-b-2 border-orange font-semibold"
+              : ""
           }`}
           onClick={() => filterByCategory("All")}
         >
@@ -64,7 +57,9 @@ const Homeproduct = () => {
         </button>
         <button
           className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
-            activeCategory === "New Arrival" ? 'border-b-2 border-orange font-semibold' : ""
+            activeCategory === "New Arrival"
+              ? "border-b-2 border-orange font-semibold"
+              : ""
           }`}
           onClick={() => filterByCategory("New Arrival")}
         >
@@ -72,7 +67,9 @@ const Homeproduct = () => {
         </button>
         <button
           className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
-            activeCategory === "Best Seller" ? "border-b-2 border-orange font-semibold" : ""
+            activeCategory === "Best Seller"
+              ? "border-b-2 border-orange font-semibold"
+              : ""
           }`}
           onClick={() => filterByCategory("Best Seller")}
         >
@@ -94,9 +91,9 @@ const Homeproduct = () => {
                 price={p.price}
                 id={p._id}
                 images={p.images}
-                href={'/products'}
-                bg={'white'}
-                btnBg={'#f4f4f4'}
+                href={"/products"}
+                bg={"white"}
+                btnBg={"#f4f4f4"}
               />
             ))
           ) : (

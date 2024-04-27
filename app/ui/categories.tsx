@@ -2,13 +2,7 @@ import Image from "next/image";
 import { ptSans } from "./fonts";
 import { getAllParentCategory } from "../lib/handleForm";
 import Link from "next/link";
-
-interface catData {
-  name: string;
-  image: string;
-  bgColor: string;
-  _id: string;
-}
+import { catData } from "../lib/definitions";
 
 const Categories = async() => {
   const res = await getAllParentCategory();
@@ -22,7 +16,7 @@ const Categories = async() => {
         Shop by Categories
       </h2>
       {data.length > 0 && (
-        <div className="gap-2 md:gap-4 hide-scrollbar mt-4 md:mt-8 flex lg:justify-center flex-nowrap overflow-x-scroll">
+        <div className="gap-2 md:gap-4 no-scrollbar mt-4 md:mt-8 flex lg:justify-center flex-nowrap overflow-x-scroll">
           {data &&
             data.map((cat: catData) => (
               <Link className="text-black no-underline" href={`/category/${cat.name}?categoryId=${cat._id}`} key={cat._id}>

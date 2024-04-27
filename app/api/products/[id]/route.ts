@@ -1,13 +1,6 @@
-import { connectToMongoDB } from "@/app/utils/config/mongodb";
+import { connectToDb } from "@/app/utils/config/mongodb";
 import Product from "@/app/utils/models/product";
-import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
-
-async function connectToDb() {
-  if (!mongoose.connection.readyState) {
-    await connectToMongoDB();
-  }
-}
 
 export async function GET(
   req: NextRequest,

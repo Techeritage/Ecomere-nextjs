@@ -1,48 +1,6 @@
-import { connectToMongoDB } from "@/app/utils/config/mongodb";
+import { connectToDb } from "@/app/utils/config/mongodb";
 import { ParentCategory } from "@/app/utils/models/parentCategory";
-
-import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
-
-interface ParentCategoryData {
-  name: string;
-  image: string;
-  bgColor?: string;
-}
-
-async function connectToDb() {
-  if (!mongoose.connection.readyState) {
-    await connectToMongoDB();
-  }
-}
-
-export async function POST(req: NextRequest) {
-  try {
-    await connectToDb();
-    const { name, image, bgColor }: ParentCategoryData = await req.json();
-
-    const newParentCategory = new ParentCategory({
-      name,
-      image,
-      bgColor,
-    });
-    await newParentCategory.save();
-
-    return NextResponse.json({
-      status: 200,
-      success: true,
-      message: "parent category successfully created",
-    });
-  } catch (error: any) {
-    console.error(error);
-    return NextResponse.json({
-      status: 500,
-      success: false,
-      message: "Failed to create parent category",
-      error: error.message,
-    });
-  }
-}
 
 export async function GET(req: NextRequest) {
   try {
@@ -78,69 +36,6 @@ export async function GET(req: NextRequest) {
       status: 500,
       success: false,
       message: "Failed to get parent categories",
-      error: error.message,
-    });
-  }
-}
-
-export async function PUT(req: NextRequest) {
-  try {
-    await connectToDb();
-
-    const { searchParams } = new URL(req.url);
-    const id = searchParams.get("id");
-
-    const { name, bgColor, image }: ParentCategoryData = await req.json();
-
-    const updatedParentCategory = await ParentCategory.findByIdAndUpdate(
-      { _id: id },
-      { name, bgColor, image }
-    );
-    if (!updatedParentCategory) {
-      return NextResponse.json({
-        status: 404,
-        error: "Parent category not found",
-      });
-    }
-
-    return NextResponse.json({
-      message: "done",
-      status: 200,
-      updatedParentCategory,
-    });
-  } catch (error) {
-    console.error("Error processing PUT request:", error);
-  }
-}
-
-export async function DELETE(req: NextRequest) {
-  try {
-    await connectToDb();
-
-    const { searchParams } = new URL(req.url);
-    const id = searchParams.get("id");
-
-    const deletedParentCategory = await ParentCategory.findByIdAndDelete({
-      _id: id,
-    });
-    if (!deletedParentCategory) {
-      return NextResponse.json({
-        status: 404,
-        message: "Parent Category not found",
-      });
-    }
-
-    return NextResponse.json({
-      status: 200,
-      message: "Category successfully deleted",
-      deletedParentCategory,
-    });
-  } catch (error: any) {
-    console.error(error);
-    return NextResponse.json({
-      status: 500,
-      success: false,
-      message: "Failed to delete parent category",
       error: error.message,
     });
   }
