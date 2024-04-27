@@ -6,6 +6,7 @@ import { catData } from "../lib/definitions";
 
 const Categories = async() => {
   const res = await getAllParentCategory();
+  console.log(res);
   const data = res?.data;
 
   return (
@@ -15,7 +16,7 @@ const Categories = async() => {
       >
         Shop by Categories
       </h2>
-      {data.length > 0 && (
+      {data?.length > 0 && (
         <div className="gap-2 md:gap-4 no-scrollbar mt-4 md:mt-8 flex lg:justify-center flex-nowrap overflow-x-scroll">
           {data &&
             data.map((cat: catData) => (

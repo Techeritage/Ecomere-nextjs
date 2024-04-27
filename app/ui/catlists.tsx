@@ -135,7 +135,7 @@ export default function Catlists() {
             <div className="flex justify-center items-center h-40">
               Loading...
             </div>
-          ) : products && products.length > 0 && sortedProducts.length > 0 ? (
+          ) : products && sortedProducts.length > 0 ? (
             sortedProducts.map((p: ProductData) => (
               <ProductCard
                 key={p._id}
