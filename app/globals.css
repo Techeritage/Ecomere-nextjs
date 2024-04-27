@@ -8,9 +8,15 @@
   padding: 0;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  width: 0px; /* Hide horizontal scrollbar */
-  height: 0px; /* Hide vertical scrollbar */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .activeLink::after {
