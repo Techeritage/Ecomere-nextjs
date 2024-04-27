@@ -102,7 +102,7 @@ export default function Catlists() {
   return (
     <div className="mt-3 px-[3%] md:px-[10%]">
       <div className="flex flex-col md:max-h-[100px] md:flex-row md:items-center md:justify-between md:border-b">
-        <div className="h-[50px] border-b md:border-0 flex items-center">
+        <div className="h-[55px] border-b md:border-0 flex items-center">
           <ul className="flex gap-4 pl-0 mb-0 items-center">
             {subcategories.length > 0 &&
               subcategories.map((cat) => (
