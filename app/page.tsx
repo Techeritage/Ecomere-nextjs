@@ -13,11 +13,11 @@ export default function Home() {
       <section>
         <Hero />
       </section>
-      <section>
+      {/*<section>
         <Suspense fallback={<CardsSkeleton />}>
           <Categories />
         </Suspense>
-      </section>
+  </section> */}
       <section>
         <Homeproduct />
       </section>
