@@ -1,3 +1,4 @@
+"use client";
 import Hero from "./ui/hero";
 import Logo from "./ui/logo";
 import Categories from "./ui/categories";
@@ -18,14 +19,11 @@ export default function Home() {
         </Suspense>
       </section>
       <section>
-        <Suspense fallback="loading...">
-          <Homeproduct />
-        </Suspense>
+        <Homeproduct />
       </section>
       <section>
         <Logo />
       </section>
-
     </main>
   );
 }
