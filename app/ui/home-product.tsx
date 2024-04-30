@@ -4,12 +4,16 @@ import { fetchProducts } from "../lib/handleForm";
 import { ptSans } from "./fonts";
 import ProductCard from "./productCard";
 import { ProductData } from "../lib/definitions";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const Homeproduct = () => {
   const [products, setProducts] = useState<ProductData[]>([]);
   const [loading, setLoading] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState<ProductData[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const productsPerPage = 4;
 
   const filterByCategory = (category: string) => {
     if (category === "All") {
@@ -34,9 +38,29 @@ const Homeproduct = () => {
     }
   };
 
-  useEffect(() => {  
+  useEffect(() => {
     fetchData();
   }, []);
+
+  const totalPages = Math.ceil(products.length / productsPerPage);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const currentProducts = filteredProducts.slice(
+    startIndex,
+    startIndex + productsPerPage
+  );
 
   return (
     <div className="px-[3%] md:px-[10%] py-[40px] bg-[#f4f4f4]">
@@ -78,13 +102,15 @@ const Homeproduct = () => {
         </button>
       </div>
       <div className="flex justify-center">
-        <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:gap-x-5 md:grid-cols-4">
           {loading ? (
             <div className="flex justify-center items-center h-40">
               Loading...
             </div>
-          ) : filteredProducts && filteredProducts.length > 0 ? (
-            filteredProducts.map((p: ProductData) => (
+          ) : (
+            filteredProducts &&
+            currentProducts.length > 0 &&
+            currentProducts.map((p: ProductData) => (
               <ProductCard
                 key={p._id}
                 name={p.name}
@@ -97,11 +123,38 @@ const Homeproduct = () => {
                 btnBg={"#f4f4f4"}
               />
             ))
-          ) : (
-            <p>No products found.</p>
           )}
         </div>
       </div>
+      {currentProducts.length > 0 && (
+        <div className="flex items-center justify-center w-full mt-5">
+          <div className="bg-white shadow-sm w-[300px] rounded-full py-2 flex items-center justify-evenly">
+            <div>
+              <button
+                className="flex items-center font-semibold disabled:text-gray-400"
+                onClick={() => handlePreviousPage()}
+                disabled={currentPage === 1}
+              >
+                <ChevronLeftIcon width={15} /> <span>Prev</span>
+              </button>
+            </div>
+
+            <div className="flex items-center">
+              {currentPage} / {totalPages}
+            </div>
+            <div>
+              <button
+                className="flex items-center font-semibold disabled:text-gray-400"
+                onClick={() => handleNextPage()}
+                disabled={currentPage === totalPages}
+              >
+                <span>Next</span>
+                <ChevronRightIcon width={15} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

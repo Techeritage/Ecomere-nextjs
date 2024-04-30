@@ -24,7 +24,7 @@ const ProductCard = ({
 }) => {
   return (
     <div
-      className={`relative rounded-md max-w-[200px] h-[290px]`}
+      className={`relative rounded-md min-w-[185px] max-w-[200px] md:min-w-[220px] h-[290px]`}
       style={{ backgroundColor: `${bg}` }}
     >
       <div className="w-full rounded-lg h-[120px] mb-1 flex items-center justify-center">
