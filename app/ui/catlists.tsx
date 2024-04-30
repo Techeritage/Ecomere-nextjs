@@ -132,7 +132,7 @@ export default function Catlists() {
         </div>
       </div>
       <div className="py-[10px] md:py-[40px]">
-        <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:grid-cols-4">
           {loading ? (
             <div className="flex justify-center items-center h-40">
               Loading...
