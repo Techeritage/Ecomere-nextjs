@@ -27,6 +27,7 @@ const Homeproduct = () => {
       setFilteredProducts(filtered);
     }
     setActiveCategory(category);
+    setCurrentPage(1);
   };
 
   const fetchData = async () => {
