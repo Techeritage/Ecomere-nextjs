@@ -3,7 +3,7 @@ import axios from "axios";
 /**********************PRODUCTS************************* */
 export const fetchProducts = async () => {
   try {
-    const response = await axios.get("/api/products", {
+    const response = await axios.get("https://ecomere-nextjs.vercel.app/api/products", {
       headers: {
         "Cache-Control": "no-cache",
       },
