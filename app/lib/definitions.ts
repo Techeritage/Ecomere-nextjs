@@ -16,3 +16,9 @@ export type ProductData = {
   tag: { name: string };
   _id: string;
 };
+
+export type Breadcrumb = {
+  label: string;
+  href: string;
+  active?: boolean;
+};

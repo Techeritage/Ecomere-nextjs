@@ -42,7 +42,7 @@ const Homeproduct = () => {
     fetchData();
   }, []);
 
-  const totalPages = Math.ceil(products.length / productsPerPage);
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
