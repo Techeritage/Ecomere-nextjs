@@ -4,33 +4,47 @@ import Hero from "../ui/hero";
 import Homeproduct from "../ui/home-product";
 import Logo from "../ui/logo";
 import { ProductData } from "../lib/definitions";
+import axios from "axios";
 
 export default async function Dashboardpage() {
-  const myFetch = await fetchProducts();
-  const data = myFetch?.data;
-  return (
-    <main>
-      {data && data.length > 0 ? (
-        data.map((p: ProductData) => (
-          <p key={p._id}>{p.name}</p>
-        ))
-      ) : (
-        <p>no product found</p>
-      )}
-      {/*<section>
-        <Hero />
-      </section>
-      <section>
-        <Suspense fallback={<CardsSkeleton />}>
-          <Categories />
-        </Suspense>
-  </section> 
-      <section>
-        <Homeproduct />
-      </section>
-      <section>
-        <Logo />
-      </section> */}
-    </main>
-  );
+  try {
+    const response = await fetch(
+      "http:/localhost:3000/api/products",
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch products");
+    }
+
+    const data = await response.json();
+    const dataPack = data.data;
+    // Extract JSON from the response
+    return (
+      <main>
+        {dataPack && dataPack.length > 0 ? (
+          dataPack.map((p: ProductData) => <p key={p._id}>{p.name}</p>)
+        ) : (
+          <p>no product found</p>
+        )}
+        {/*<section>
+          <Hero />
+        </section>
+        <section>
+          <Suspense fallback={<CardsSkeleton />}>
+            <Categories />
+          </Suspense>
+          </section> 
+        <section>
+          <Homeproduct />
+        </section>
+        <section>
+          <Logo />
+        </section> */}
+      </main>
+    );
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return <p>Error fetching products</p>;
+  }
 }
