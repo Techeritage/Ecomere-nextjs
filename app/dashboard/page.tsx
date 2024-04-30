@@ -23,7 +23,7 @@ export default function Dashboardpage() {
     <main>
       {products.length > 0 ? (
         products.map((p) => (
-          <p>{p.name}</p>
+          <p key={p._id}>{p.name}</p>
         ))
       ) : (
         <p>no product found</p>
