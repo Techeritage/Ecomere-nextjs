@@ -8,18 +8,8 @@ import axios from "axios";
 
 export default async function Dashboardpage() {
   try {
-    const response = await fetch("https://ecomere-nextjs.vercel.app/api/products", {
-      headers: {
-        "Cache-Control": "no-store",
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch products");
-    }
-
-    const data = await response.json();
-    const dataPack = data.data;
+    const response = await axios.get("/api/products");
+    const dataPack = response.data;
     // Extract JSON from the response
     return (
       <main>
