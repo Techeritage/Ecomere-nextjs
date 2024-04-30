@@ -3,7 +3,7 @@ import axios from "axios";
 /**********************PRODUCTS************************* */
 export const fetchProducts = async () => {
   try {
-    const response = await axios.get("/api/products", {
+    const response = await axios.get("http://localhost:3000/api/products", {
       headers: {
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",

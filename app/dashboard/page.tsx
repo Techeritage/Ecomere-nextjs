@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../lib/handleForm";
 import Hero from "../ui/hero";
@@ -6,23 +5,13 @@ import Homeproduct from "../ui/home-product";
 import Logo from "../ui/logo";
 import { ProductData } from "../lib/definitions";
 
-export default function Dashboardpage() {
-  const [products, setProducts] = useState<ProductData[]>([]);
-
-  const fetchData = async () => {
-    const res = await fetchProducts();
-    if (res?.data) {
-      setProducts(res.data);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+export default async function Dashboardpage() {
+  const myFetch = await fetchProducts();
+  const data = myFetch?.data;
   return (
     <main>
-      {products.length > 0 ? (
-        products.map((p) => (
+      {data && data.length > 0 ? (
+        data.map((p: ProductData) => (
           <p key={p._id}>{p.name}</p>
         ))
       ) : (
