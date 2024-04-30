@@ -25,15 +25,16 @@ const Homeproduct = () => {
     setActiveCategory(category);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetchProducts();
-      if (res?.data) {
-        setProducts(res.data);
-        setFilteredProducts(res.data); // Initially display all products
-        setLoading(false);
-      }
-    };
+  const fetchData = async () => {
+    const res = await fetchProducts();
+    if (res?.data) {
+      setProducts(res.data);
+      setFilteredProducts(res.data); // Initially display all products
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {  
     fetchData();
   }, []);
 
