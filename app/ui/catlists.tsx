@@ -90,7 +90,6 @@ export default function Catlists() {
     }
   }, [products]);
 
-
   return (
     <div className="mt-3 px-[3%] md:px-[10%]">
       <div className="flex flex-col md:max-h-[100px] md:flex-row md:items-center md:justify-between md:border-b">
@@ -100,7 +99,9 @@ export default function Catlists() {
               subcategories.map((cat) => (
                 <li
                   className={`relative whitespace-nowrap text-sm cursor-pointer tracking-wide md:text-[16px] pb-0 text-gray-800 ${
-                    activeSubcategory === cat._id ? "activeLink font-semibold" : ""
+                    activeSubcategory === cat._id
+                      ? "activeLink font-semibold"
+                      : ""
                   }`}
                   key={cat._id}
                   onClick={() => getProductsBySubcategory(cat._id)}
@@ -113,7 +114,8 @@ export default function Catlists() {
         <div className="flex gap-1 py-3 justify-end items-center">
           <p className="font-semibold text-sm mb-0 md:text-[16px]">Sort By:</p>
           <div className="flex gap-2">
-            <select className="bg-transparent border-0 outline-0 text-sm md:text-[16px]"
+            <select
+              className="bg-transparent border-0 outline-0 text-sm md:text-[16px]"
               value={selectedSort}
               onChange={(e) =>
                 handleSortChange(
@@ -135,7 +137,9 @@ export default function Catlists() {
             <div className="flex justify-center items-center h-40">
               Loading...
             </div>
-          ) : sortedProducts && sortedProducts.length > 0 ? (
+          ) : (
+            sortedProducts &&
+            sortedProducts.length > 0 &&
             sortedProducts.map((p: ProductData) => (
               <ProductCard
                 key={p._id}
@@ -149,8 +153,6 @@ export default function Catlists() {
                 btnBg={"white"}
               />
             ))
-          ) : (
-            <p>No product found.</p>
           )}
         </div>
       </div>
