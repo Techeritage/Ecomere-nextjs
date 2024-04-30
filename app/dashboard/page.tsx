@@ -8,7 +8,7 @@ import axios from "axios";
 
 export default async function Dashboardpage() {
   try {
-    const response = await axios.get("/api/products");
+    const response = await axios.get("https://ecomere-nextjs.vercel.app/api/products");
     const dataPack = response.data;
     // Extract JSON from the response
     return (
