@@ -32,7 +32,9 @@ const ProductCard = ({
       </div>
       <div className="w-full p-2">
         <RatingStar count={5} />
-        <p className="font-semibold text-sm mb-1 text-gray-700">{name}</p>
+        <p className="font-semibold text-sm mb-1 truncate ...  text-gray-700">
+          {name}
+        </p>
         <p className="text-[12px] max-h-[40px] truncate ... mb-1 text-gray-600 md:text-sm">
           {desc}
         </p>
