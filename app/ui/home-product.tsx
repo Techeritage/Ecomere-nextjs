@@ -128,7 +128,7 @@ const Homeproduct = () => {
         </div>
       </div>
       {currentProducts.length > 0 && (
-        <div className="flex items-center justify-center w-full mt-5">
+        <div className="flex items-center justify-center w-full mt-3 md:mt-5">
           <div className="bg-white shadow-sm w-[300px] rounded-full py-2 flex items-center justify-evenly">
             <div>
               <button

@@ -1,7 +1,7 @@
 const Header = () => {
   return(
-    <nav className="text-xl">
-      <h2>e-shop</h2>
+    <nav className="border-b">
+      <h2 className="text-[24px]">e-shop</h2>
     </nav>
   );
 };

@@ -1,5 +1,4 @@
 "use client";
-import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import {
   fetchCategoriesByParent,
@@ -8,7 +7,7 @@ import {
 import ProductCard from "./productCard";
 import { ProductData, SortBy } from "../lib/definitions";
 
-export default function Catlists() {
+export default function Catlists({id}:{id:string | null}) {
   const [subcategories, setSubcategories] = useState<ProductData[]>([]);
   const [products, setProducts] = useState<ProductData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -20,8 +19,7 @@ export default function Catlists() {
     null
   );
 
-  const searchParams = useSearchParams();
-  const id = searchParams.get("categoryId");
+
 
   async function getSubCat() {
     if (id) {
