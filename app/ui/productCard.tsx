@@ -24,7 +24,7 @@ const ProductCard = ({
 }) => {
   return (
     <div
-      className={`relative rounded-md min-w-[185px] max-w-[200px] md:min-w-[220px] h-[290px]`}
+      className={`relative rounded-md min-w-[167px] max-w-[200px] lg:min-w-[220px] h-[290px]`}
       style={{ backgroundColor: `${bg}` }}
     >
       <div className="w-full rounded-lg h-[120px] mb-1 flex items-center justify-center">
@@ -43,7 +43,7 @@ const ProductCard = ({
         </p>
       </div>
       <button
-        className={`text-black absolute bottom-2 left-[50%] translate-x-[-50%] rounded-full w-[90%] p-2 text-sm font-semibold`}
+        className={`text-black absolute bottom-3 left-[50%] translate-x-[-50%] rounded-full w-[90%] p-2 text-sm font-semibold`}
         style={{ backgroundColor: `${btnBg}` }}
       >
         Add To Cart

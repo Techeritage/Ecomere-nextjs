@@ -10,7 +10,7 @@ export default function Breadcrumbs({
   breadcrumbs: Breadcrumb[];
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="px-[3%] md:px-[10%] my-4 block">
+    <nav aria-label="Breadcrumb" className="px-[3%] md:px-[5%] lg:px-[10%] my-4 block">
       <ol className={clsx(inter.className, 'pl-0 flex text-xl md:text-2xl mb-0')}>
         {breadcrumbs.map((breadcrumb, index) => (
           <li

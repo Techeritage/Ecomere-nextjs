@@ -9,7 +9,7 @@ const Categories = async() => {
   const data = res?.data;
 
   return (
-    <div className="px-[3%] py-[40px] md:px-[10%] md:py-[50px] border-b">
+    <div className="px-[3%] pt-[40px] pb-[20px] md:px-[5%] lg:px-[10%] md:py-[50px] border-b">
       <h2
         className={`${ptSans.className} font-bold text-center text-xl md:text-2xl`}
       >

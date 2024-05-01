@@ -89,7 +89,7 @@ export default function Catlists({id}:{id:string | null}) {
   }, [products]);
 
   return (
-    <div className="mt-3 px-[3%] md:px-[10%]">
+    <div className="mt-3 px-[3%] md:px-[5%] lg:px-[10%]">
       <div className="flex flex-col md:max-h-[100px] md:flex-row md:items-center md:justify-between md:border-b">
         <div className="h-[55px] border-b md:border-0 flex items-center overflow-x-scroll no-scrollbar">
           <ul className="flex gap-4 pl-0 mb-0 items-center">

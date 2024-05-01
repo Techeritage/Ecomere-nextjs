@@ -64,13 +64,13 @@ const Homeproduct = () => {
   );
 
   return (
-    <div className="px-[3%] md:px-[10%] py-[40px] bg-[#f4f4f4]">
+    <div className="px-[3%] md:px-[5%] lg:px-[10%] py-[30px] md:py-[40px] bg-[#f4f4f4]">
       <h2
-        className={`${ptSans.className} font-bold text-xl md:text-2xl text-center mb-3`}
+        className={`${ptSans.className} font-bold text-xl md:text-2xl text-center mb-2 md:mb-3`}
       >
         Our Products
       </h2>
-      <div className="flex gap-3 justify-center mb-8">
+      <div className="flex gap-3 justify-center mb-6">
         <button
           className={`text-sm tracking-wide md:text-[16px] text-gray-800 pb-1 ${
             activeCategory === "All"
@@ -103,7 +103,7 @@ const Homeproduct = () => {
         </button>
       </div>
       <div className="flex justify-center">
-        <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:gap-x-5 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-5 lg:gap-x-5 md:grid-cols-4">
           {loading ? (
             <div className="flex justify-center items-center h-40">
               Loading...
