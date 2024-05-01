@@ -13,7 +13,7 @@ const Slider = () => {
         <div className="bg-[#008080] md:h-[400px] lg:h-[500px] flex flex-col md:flex-row px-[5%] md:px-[8%] lg:px-[10%]">
           <div className="basis-1/2 py-4 flex flex-col justify-center">
             <h1
-              className={`${ptSans.className} text-3xl text-white md:text-5xl font-semibold w-[80%] mb-2`}
+              className={`${ptSans.className} text-4xl text-white md:text-5xl font-semibold w-[80%] mb-2`}
             >
               Iphone 15 Pro Max
             </h1>
@@ -44,7 +44,7 @@ const Slider = () => {
         <div className="bg-[#008080] md:h-[400px] lg:h-[500px] flex flex-col md:flex-row px-[5%] md:px-[8%] lg:px-[10%]">
           <div className="basis-1/2 py-4 flex flex-col justify-center">
             <h1
-              className={`${ptSans.className} text-3xl text-white md:text-5xl font-semibold w-[80%] mb-2`}
+              className={`${ptSans.className} text-4xl text-white md:text-5xl font-semibold w-[80%] mb-2`}
             >
               Iphone 15 Pro Max
             </h1>

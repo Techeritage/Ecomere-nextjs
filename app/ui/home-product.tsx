@@ -119,7 +119,7 @@ const Homeproduct = () => {
                 price={p.price}
                 id={p._id}
                 images={p.images}
-                href={"/products"}
+                href={`/product/${p.name}`}
                 bg={"white"}
                 btnBg={"#f4f4f4"}
               />
