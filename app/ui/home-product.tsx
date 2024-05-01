@@ -136,11 +136,11 @@ const Homeproduct = () => {
                 onClick={() => handlePreviousPage()}
                 disabled={currentPage === 1}
               >
-                <ChevronLeftIcon width={15} /> <span>Prev</span>
+                <ChevronLeftIcon width={15} /> <span className="text-sm md:text-base">Prev</span>
               </button>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center text-sm md:text-base">
               {currentPage} / {totalPages}
             </div>
             <div>
@@ -149,7 +149,7 @@ const Homeproduct = () => {
                 onClick={() => handleNextPage()}
                 disabled={currentPage === totalPages}
               >
-                <span>Next</span>
+                <span className="text-sm md:text-base">Next</span>
                 <ChevronRightIcon width={15} />
               </button>
             </div>
