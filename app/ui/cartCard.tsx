@@ -26,7 +26,7 @@ export default function CartCard() {
   }, [cartProducts]);
 
   return (
-    <div className="grid gap-4 p-5">
+    <div className="grid gap-4 py-5">
       {products.length > 0 ? (
         products.map((product) => {
           // Count the occurrences of the product ID in `cartProducts`
@@ -36,7 +36,7 @@ export default function CartCard() {
 
           return (
             <div key={product._id} className="bg-white shadow-lg px-4 min-h-[80px] rounded-2xl flex justify-between">
-              <div className="flex items-center gap-2 basis-[40%]">
+              <div className="flex items-center gap-2 basis-[37%]">
                 <div>
                   <Image
                     src={product.images[0]}
@@ -46,7 +46,7 @@ export default function CartCard() {
                     style={{objectFit: "cover"}}
                   />
                 </div>
-                <p className="font-semibold">{product.name}</p>
+                <p className="font-semibold text-sm md:text-base">{product.name}</p>
               </div>
               <div className="flex items-center gap-2 basis-[20%]">
                 <button className="bg-[#f4f4f4] p-1 rounded-full" onClick={() => addToCart(product._id)}>
@@ -58,7 +58,7 @@ export default function CartCard() {
                 </button>
               </div>
               <div className="flex gap-2 items-center justify-end basis-[40%]">
-                <p className="font-semibold">${product.price * quantity}</p>
+                <p className="font-semibold text-sm md:text-base">${product.price * quantity}</p>
                 <button className="text-gray-600"><TrashIcon width={20} /></button>
               </div>
             </div>
