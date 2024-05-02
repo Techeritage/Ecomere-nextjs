@@ -29,8 +29,23 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       return newCartProducts; // Important: return the updated state
     });
   }
-  
+
   function removeFromCart(productId: string) {
+    setCartProducts((prev) => {
+      const index = prev.indexOf(productId); // Find the index of the first occurrence
+      if (index !== -1) {
+        // If the item is found, remove it
+        const newCartProducts = [...prev]; // Make a copy of the array
+        newCartProducts.splice(index, 1); // Remove one item at the found index
+        localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
+        return newCartProducts; // Return the updated array
+      }
+      return prev; // If the productId is not found, return the previous state
+    });
+  }
+  
+  
+  function deleteFromCart(productId: string) {
     setCartProducts((prev) => {
       const newCartProducts = prev.filter((id) => id !== productId);
       localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
