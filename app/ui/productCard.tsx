@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ptSans } from "./fonts";
 import RatingStar from "./ratingStar";
 import Link from "next/link";
+import { useCartContext } from "../providers/cartProvider";
 
 const ProductCard = ({
   name,
@@ -22,9 +23,7 @@ const ProductCard = ({
   bg: string;
   btnBg: string;
 }) => {
-  const addToCart = () => {
-    alert("hello");
-  };
+  const {addToCart} = useCartContext();
   return (
     <div
       className={`relative rounded-md min-w-[167px] max-w-[200px] lg:min-w-[220px] h-[290px]`}
@@ -50,7 +49,7 @@ const ProductCard = ({
         </div>
       </Link>
       <button
-        onClick={() => addToCart()}
+        onClick={() => addToCart(id)}
         className={`text-black absolute bottom-3 left-[50%] translate-x-[-50%] rounded-full w-[90%] p-2 text-sm font-semibold`}
         style={{ backgroundColor: `${btnBg}` }}
       >
