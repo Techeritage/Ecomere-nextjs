@@ -10,7 +10,7 @@ export default function Breadcrumbs({
   breadcrumbs: Breadcrumb[];
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="px-[3%] md:px-[5%] lg:px-[10%] my-4 block">
+    <nav aria-label="Breadcrumb" className="my-4 block">
       <ol className={clsx(inter.className, 'pl-0 flex text-xl md:text-2xl mb-0')}>
         {breadcrumbs.map((breadcrumb, index) => (
           <li
@@ -21,7 +21,7 @@ export default function Breadcrumbs({
             )}
           >
             <Link className={clsx(
-              breadcrumb.active ? 'text-orange no-underline text-sm font-semibold' : 'text-gray-500 no-underline text-sm', 
+              breadcrumb.active ? 'text-orange no-underline text-sm font-semibold' : 'text-gray-600 no-underline text-sm', 
             )} href={breadcrumb.href}>{breadcrumb.label}</Link>
             {index < breadcrumbs.length - 1 ? (
               <span className="mx-2 inline-block"><ChevronRightIcon width={15} /></span>

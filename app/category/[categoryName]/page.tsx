@@ -14,7 +14,7 @@ export default function CategoryPage() {
 
   return (
     <main>
-      <section>
+      <section className="px-[3%] md:px-[5%] lg:px-[10%]">
         <Breadcrumbs
           breadcrumbs={[
             { label: "Home", href: "/" },
