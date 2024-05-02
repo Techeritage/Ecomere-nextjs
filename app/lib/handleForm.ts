@@ -4,7 +4,7 @@ import axios from "axios";
 export const fetchProducts = async () => {
   try {
     const response = await fetch(
-      "http://localhost:3000/api/products"
+      "https://ecomere-nextjs.vercel.app/api/products"
     );
     const data = await response.json();
     return data;
