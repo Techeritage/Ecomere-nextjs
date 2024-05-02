@@ -9,7 +9,7 @@ export default function CartCard() {
       {cartProducts.length > 0 ? (
         <>
           {cartProducts && cartProducts.map((p: string)=> (
-            <p>{p}</p>
+            <p key={p}>{p}</p>
           ))}
         </>
       ): (
