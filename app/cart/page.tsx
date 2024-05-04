@@ -1,5 +1,6 @@
 import Breadcrumbs from "../ui/breadcrumbs";
 import CartCard from "../ui/cartCard";
+import CheckoutRedirect from "../ui/checkoutRedirect";
 
 export default function CartPage() {
   return (
@@ -16,11 +17,13 @@ export default function CartPage() {
           ]}
         />
       </section>
-      <div className="flex flex-col lg:flex-row">
-        <section className="basis-3/5">
+      <div className="flex justify-between flex-col lg:flex-row">
+        <section className="basis-[65%]">
           <CartCard />
         </section>
-        <section></section>
+        <section className="basis-[30%]">
+          <CheckoutRedirect />
+        </section>
       </div>
     </main>
   );

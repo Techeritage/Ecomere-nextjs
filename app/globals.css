@@ -42,9 +42,9 @@
   content: '';
   position: absolute;
   width: 100%;
-  height: 1px;
-  background-color: #333333;
-  bottom: 18px;
+  height: 0.5px;
+  background-color: rgba(128, 128, 128, 0.267);
+  bottom: 10px;
   right: 0;
   left: 0;
 }

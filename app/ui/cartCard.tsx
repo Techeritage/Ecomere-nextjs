@@ -8,7 +8,8 @@ import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 export default function CartCard() {
-  const { cartProducts, addToCart, removeFromCart } = useCartContext();
+  const { cartProducts, addToCart, removeFromCart, deleteFromCart } =
+    useCartContext();
   const [products, setProducts] = useState<ProductData[]>([]);
   const [selectedSort, setSelectedSort] = useState<
     "a-z" | "z-a" | "l-h" | "h-l"
@@ -70,13 +71,15 @@ export default function CartCard() {
 
   return (
     <div>
-      <div className="sticky top-0 cart bg-[#f4f4f4] h-[70px] flex items-start justify-between mb-5">
+      <div className="relative cart bg-[#f4f4f4] h-[50px] flex items-start justify-between">
         <p className="font-semibold text-lg">Shopping Cart</p>
-        <div className="flex gap-1 justify-end items-center">
-          <p className="text-sm mb-0 md:text-[15px]">Sort By:</p>
+        <div className="flex gap-1 pt-1 justify-end items-center">
+          <p className="text-sm mb-0 text-[#555555] font-semibold md:text-[15px]">
+            Sort By:
+          </p>
           <div className="flex gap-2">
             <select
-              className="bg-transparent text-[#333333] border-0 outline-0 font-semibold text-sm md:text-[15px]"
+              className="bg-transparent text-[#555555] border-0 outline-0 text-sm md:text-[15px]"
               value={selectedSort}
               onChange={(e) =>
                 handleSortChange(
@@ -103,7 +106,7 @@ export default function CartCard() {
             return (
               <div
                 key={product._id}
-                className="bg-white shadow-md px-4 min-h-[80px] md:min-h-[90px] rounded-xl flex justify-between"
+                className="bg-white shadow-sm px-2 md:px-4 min-h-[80px] md:min-h-[90px] rounded-md flex justify-between"
               >
                 <div className="flex items-center gap-2 basis-[50%]">
                   <div>
@@ -121,16 +124,16 @@ export default function CartCard() {
                 </div>
                 <div className="flex items-center justify-center basis-[20%]">
                   <button
-                    className="bg-[#f2f2f2] font-semibold p-2 rounded-full mr-2"
+                    className="bg-[#f2f2f2] font-semibold p-1 md:p-2 rounded-full mr-2"
                     onClick={() => removeFromCart(product._id)}
                   >
                     <MinusIcon className="stroke-2" width={18} />
                   </button>
-                  <p className="font-semibold text-[#333333] text-sm md:text-base">
+                  <p className="text-[#333333] text-sm md:text-base">
                     {quantity}
                   </p>
                   <button
-                    className="bg-[#f4f4f4] ml-2 font-semibold p-2 rounded-full"
+                    className="bg-[#f4f4f4] ml-2 font-semibold p-1 md:p-2 rounded-full"
                     onClick={() => addToCart(product._id)}
                   >
                     <PlusIcon className="stroke-2" width={18} />
@@ -140,7 +143,10 @@ export default function CartCard() {
                   <p className="font-semibold text-[#333333] text-sm md:text-base">
                     ${product.price * quantity}
                   </p>
-                  <button className="text-gray-600">
+                  <button
+                    onClick={() => deleteFromCart(product._id)}
+                    className="text-gray-600"
+                  >
                     <TrashIcon width={22} />
                   </button>
                 </div>
